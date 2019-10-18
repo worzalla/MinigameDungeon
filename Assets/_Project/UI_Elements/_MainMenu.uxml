@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="Frame" style="height: 543px; background-image: url('/Assets/_Project/UI_Elements/UI_Assets/Background.png'); position: relative; flex-direction: column; align-items: center; justify-content: space-around;">
+        <Style src="_MainMenu.uss" />
+        <ui:VisualElement name="Logo" class="logo" style="position: relative; top: 0; justify-content: center; align-items: center; background-image: url('/Assets/_Project/UI_Elements/UI_Assets/Logo.png'); width: 300px; height: 108px; flex-direction: column;" />
+        <ui:Button text="Enter the Dungeon" name="PlayButton" class="mgd-button" />
+        <ui:Button text="Button" name="SignupButton" class="mgd-button" />
+        <ui:Button text="Button" name="InfoButton" class="mgd-button" />
+    </ui:VisualElement>
+</ui:UXML>
