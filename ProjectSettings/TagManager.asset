@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Background
+  - MinigameController
+  - Minigame
+  - MinigameBackground
   layers:
   - Default
   - TransparentFX
@@ -38,6 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2058966633
+    locked: 0
+  - name: Game
+    uniqueID: 3080700259
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effects
+    uniqueID: 596455521
+    locked: 0
+  - name: UI
+    uniqueID: 4182574589
     locked: 0
