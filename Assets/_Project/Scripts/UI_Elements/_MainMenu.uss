@@ -6,7 +6,7 @@
     color: rgb(255, 255, 255);
     -unity-font-style: bold;
     font-size: 20px;
-    -unity-font: url('/Assets/_Project/UI_Elements/UI_Assets/HeptaSlab-SemiBold.ttf');
+    -unity-font: url('/Assets/_Project/Sprites/UI_Assets/HeptaSlab-SemiBold.ttf');
     border-left-color: rgba(204, 204, 204, 0);
     border-right-color: rgba(204, 204, 204, 0);
     border-top-color: rgba(204, 204, 204, 0);
@@ -19,5 +19,5 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    background-image: url('/Assets/_Project/UI_Elements/UI_Assets/Group 1.png');
+    background-image: none;
 }
