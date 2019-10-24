@@ -9,14 +9,15 @@ public class PlatformerMovement : MonoBehaviour
     private float gravity;
     private Sprite[] gasSprites;
 
-    protected Animator animator;
-    protected Rigidbody2D body;
-    protected SpriteRenderer sr;
-    protected Collider2D vCollider;
+    Animator animator;
+    Rigidbody2D body;
+    SpriteRenderer sr;
+    Collider2D vCollider;
+    bool grounded;
 
     [HideInInspector] public int facingX = -1;
 
-    protected virtual void Start()
+    void Start()
     {
         gravity = 0.9f;
         gasSprites = Resources.LoadAll<Sprite>("gasMode");
@@ -27,12 +28,16 @@ public class PlatformerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
+        if (!Minigame.isActive)
+        {
+            return;
+        }
         body.gravityScale = gravity;
         body.drag = 0f;
         sr.flipX = false;
-        bool grounded = Grounded();
+        grounded = Grounded();
 
         // can't move if transition exists
         int hDirection = 0;
@@ -62,34 +67,34 @@ public class PlatformerMovement : MonoBehaviour
         //animator.SetBool("Grounded", grounded);
     }
 
-    protected virtual bool Jumpable()
+    bool Jumpable()
     {
         return Grounded();
     }
 
-    protected virtual bool Movable()
+    bool Movable()
     {
         return true;
     }
 
-    protected bool Grounded()
+    bool Grounded()
     {
         return CheckRaycastGround(Vector2.zero) ||
             CheckRaycastGround(Vector2.left * (vCollider.bounds.extents.x + vCollider.offset.x)) ||
             CheckRaycastGround(Vector2.right * (vCollider.bounds.extents.x + vCollider.offset.x));
     }
 
-    private bool CheckRaycastGround(Vector2 pos)
+    bool CheckRaycastGround(Vector2 pos)
     {
         // player has 2 colliders, so to find more, make this 3
         RaycastHit2D[] results = new RaycastHit2D[3];
         // raycast for a collision down
         Physics2D.Raycast((Vector2)transform.position + pos, Vector2.down, new ContactFilter2D(), results,
-            vCollider.bounds.extents.y - vCollider.offset.y + 1f);
+            vCollider.bounds.extents.y - vCollider.offset.y + 0.5f);
         // make sure raycast hit isn't only player
         foreach (RaycastHit2D result in results)
         {
-            if (result != null && result.collider != null)
+            if (result.collider != null)
             {
                 if (result.collider.gameObject.tag != "Player")
                 {
@@ -100,10 +105,20 @@ public class PlatformerMovement : MonoBehaviour
         return false;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Goal")
+        if (!Minigame.isActive)
         {
+            return;
+        }
+        if (grounded && col.gameObject.tag == "Goal")
+        {
+            Minigame.SetSuccess(true);
+            Minigame.FinishMinigame();
+        }
+        if (col.gameObject.tag == "Hazard")
+        {
+            Minigame.SetSuccess(false);
             Minigame.FinishMinigame();
         }
     }

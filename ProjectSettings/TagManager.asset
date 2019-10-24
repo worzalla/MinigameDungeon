@@ -9,6 +9,7 @@ TagManager:
   - Minigame
   - MinigameBackground
   - Goal
+  - Hazard
   layers:
   - Default
   - TransparentFX
