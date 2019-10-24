@@ -12,13 +12,18 @@ public class PlatformerMinigame : MonoBehaviour
     {
         minigame = GetComponent<Minigame>();
         minigame.success = false;
-        rb = Player.GetInstance().GetComponent<Rigidbody2D>();
-        cols = Player.GetInstance().GetComponents<Collider2D>();
+        rb = Player.GetInstance()?.GetComponent<Rigidbody2D>();
+        cols = Player.GetInstance()?.GetComponents<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (rb == null || cols == null)
+        {
+            rb = Player.GetInstance()?.GetComponent<Rigidbody2D>();
+            cols = Player.GetInstance()?.GetComponents<Collider2D>();
+        }
         // enable physics on player on minigame start
         if (rb.IsSleeping() && minigame.GetActive())
         {

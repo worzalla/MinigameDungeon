@@ -18,7 +18,8 @@ public class PlayerStartingPosition : MonoBehaviour
         // if no player exists, create one
         if (Player.GetInstance() == null)
         {
-            Instantiate(playerPrefab, transform.position, transform.rotation);
+            GameObject player = Instantiate(playerPrefab);
+            player.transform.position = transform.position;
         }
     }
 

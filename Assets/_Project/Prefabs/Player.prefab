@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ebaa0a4b4100b4c9babd57f3692817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 5
-  jumpSpeed: 7
+  horizontalSpeed: 3
+  jumpSpeed: 5
   facingX: -1
 --- !u!58 &736423877939588271
 CircleCollider2D:
