@@ -39,12 +39,19 @@ public class MinigameController : MonoBehaviour
     void Start()
     {
         minigameState = minigame.GetComponentInChildren<Minigame>();
+        minigameState.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((finish || timer > maxTime) && ready)
+        // minigame automatically ends at time-up
+        if (timer > maxTime)
+        {
+            FinishMinigame();
+        }
+        // handles when a minigame has finished
+        if (finish && ready)
         {
             ready = false;
             finish = false;
@@ -69,18 +76,20 @@ public class MinigameController : MonoBehaviour
     // triggers the transition to the next minigame
     public void FinishMinigame()
     {
-        finish = true;
-        Minigame m = minigame.GetComponentInChildren<Minigame>();
-        if (m == null)
+        if (ready)
         {
-            throw new MissingComponentException("GameObject" + minigame + " has no child with a Minigame component.");
+            finish = true;
+            Minigame m = minigame.GetComponentInChildren<Minigame>();
+            if (m == null)
+            {
+                throw new MissingComponentException("GameObject" + minigame + " has no child with a Minigame component.");
+            }
+            minigameSuccess = m.success;
+            m.Disable();
         }
-        minigameSuccess = m.success;
     }
     IEnumerator TransitionMinigame()
     {
-        // disable previous minigame
-        minigame.GetComponentInChildren<Minigame>().Disable();
         timer = 0f;
         // display a notification that the player succeeded/failed
         string message = "Failure!";
@@ -115,18 +124,29 @@ public class MinigameController : MonoBehaviour
         SpriteRenderer prevMinigameBg = GetMinigameBackground(minigame);
         // create tunnel
         tunnel = Instantiate(tunnelPrefab).GetComponent<Tunnel>();
-        Vector3 tunnelPos = tunnel.SetPosition(prevMinigameBg);
+        SpriteRenderer tunnelPos = tunnel.SetPosition(prevMinigameBg);
         tunnel.SetTargetAlpha(1f);
-        // create next minigame (align left bottom corner with right bottom corner of tunnel)
+        // create next minigame (align player positions)
         prevMinigame = minigame;
         minigame = Instantiate(minigamePrefabs[index]);
         SpriteRenderer minigameBg = GetMinigameBackground(minigame);
-        Vector3 bgPos = minigame.transform.position - minigameBg.transform.position;
-        Vector3 pos = tunnelPos + minigameBg.bounds.extents + bgPos;
+        PlayerStartingPosition minigamePlayer = minigame.GetComponentInChildren<PlayerStartingPosition>();
+        if (minigamePlayer == null)
+        {
+            throw new MissingComponentException("GameObject" + minigame + " has no child with a PlayerStartingPosition component.");
+        }
+        float playerY = minigamePlayer.transform.position.y - minigameBg.transform.position.y;
+        float bgPosY = Mathf.Clamp(tunnel.transform.position.y - playerY,
+            tunnel.transform.position.y + tunnelPos.bounds.extents.y - minigameBg.bounds.extents.y,
+            tunnel.transform.position.y - tunnelPos.bounds.extents.y + minigameBg.bounds.extents.y);
+        Vector2 pos = new Vector2(tunnel.transform.position.x + tunnelPos.bounds.extents.x + minigameBg.bounds.extents.x + tunnel.GetOffset().x, bgPosY);
+        // convert bg to minigame coords
+        pos += (Vector2)(minigame.transform.position - minigameBg.transform.position);
         minigame.transform.position = new Vector3(pos.x, pos.y, minigame.transform.position.z);
         // kick off transition object
         transition = Instantiate(transitionPrefab);
-        transition.GetComponent<MinigameTransition>().Initialize(prevMinigameBg, tunnel.gameObject, minigameBg);
+        transition.GetComponent<MinigameTransition>().Initialize(prevMinigameBg, tunnel.gameObject, minigameBg, 
+           minigame.GetComponentInChildren<PlayerStartingPosition>());
     }
     // run once the transition object completes
     private void DestroyPreviousMinigame()

@@ -8,6 +8,8 @@ TagManager:
   - MinigameController
   - Minigame
   - MinigameBackground
+  - Goal
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 

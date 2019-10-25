@@ -14,6 +14,10 @@ public class MinigameTransition : MonoBehaviour
     Vector2 prevPos;
     Vector2 targetPos;
 
+    Vector2 prevPlayerPos;
+    PlayerStartingPosition playerPos;
+    Player player;
+
     float prevSize;
     float centerSize;
     float targetSize;
@@ -29,11 +33,12 @@ public class MinigameTransition : MonoBehaviour
     SpriteRenderer prevMinigame;
     GameObject tunnel;
     SpriteRenderer nextMinigame;
-    public void Initialize(SpriteRenderer prevMinigame, GameObject tunnel, SpriteRenderer nextMinigame)
+    public void Initialize(SpriteRenderer prevMinigame, GameObject tunnel, SpriteRenderer nextMinigame, PlayerStartingPosition playerPos)
     {
         this.prevMinigame = prevMinigame;
         this.tunnel = tunnel;
         this.nextMinigame = nextMinigame;
+        this.playerPos = playerPos;
     }
 
     // Start is called before the first frame update
@@ -44,6 +49,8 @@ public class MinigameTransition : MonoBehaviour
         prevSize = Camera.main.orthographicSize;
         targetSize = GetOrthographicSize(nextMinigame);
         centerSize = 1.5f * 0.5f * (prevSize + targetSize);
+        player = Player.GetInstance();
+        prevPlayerPos = player.transform.position;
     }
 
     // Update is called once per frame
@@ -53,16 +60,24 @@ public class MinigameTransition : MonoBehaviour
         // if we finish animation, make a beeline for target
         if (time > duration)
         {
+            // move camera towards goal
             Vector2 pos = Vector2.MoveTowards(Camera.main.transform.position, targetPos, 5f * Time.deltaTime);
             Camera.main.transform.position = new Vector3(pos.x, pos.y, Camera.main.transform.position.z);
             Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, targetSize, 5f * Time.deltaTime);
-            if ((Vector2)Camera.main.transform.position == targetPos && Camera.main.orthographicSize == targetSize)
+            // move player towards goal
+            Vector2 p = Vector2.MoveTowards(player.transform.position, playerPos.transform.position, 5f * Time.deltaTime);
+            player.transform.position = new Vector3(p.x, p.y, player.transform.position.z);
+            // check if all positions have reached goal
+            if ((Vector2)Camera.main.transform.position == targetPos
+                && Camera.main.orthographicSize == targetSize
+                && (Vector2)player.transform.position == (Vector2)playerPos.transform.position)
             {
                 Destroy(gameObject);
             }
             return;
         }
         // sigmoid curve to target
+        // camera
         Vector2 cameraPos = Vector2.Lerp(prevPos, targetPos, Sigmoid(time / duration, -0.3f));
         Camera.main.transform.position = new Vector3(cameraPos.x, cameraPos.y, Camera.main.transform.position.z);
         float size = Mathf.Lerp(prevSize, centerSize, Sigmoid(2 * time / duration, -0.3f));
@@ -71,6 +86,9 @@ public class MinigameTransition : MonoBehaviour
             size = Mathf.Lerp(centerSize, targetSize, Sigmoid((2 * time - duration) / duration, -0.3f));
         }
         Camera.main.orthographicSize = size;
+        // player
+        Vector2 playerP = Vector2.Lerp(prevPlayerPos, playerPos.transform.position, Sigmoid(time / duration, -0.3f));
+        player.transform.position = new Vector3(playerP.x, playerP.y, player.transform.position.z);
     }
 
     private float GetOrthographicSize(SpriteRenderer bg)
