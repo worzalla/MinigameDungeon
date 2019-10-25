@@ -37,18 +37,36 @@ public class Minigame : MonoBehaviour
 
     // don't do anything unless set as activate by MinigameController
     // inactive includes before message has disappeared or after player has won or during transitions
-    public bool active = false;
+    [HideInInspector]
+    public bool active;
+
+    static Minigame minigame;
+
+    private void Awake()
+    {
+        minigame = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        active = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public static Minigame GetInstance()
+    {
+        return minigame;
+    }
+    public static bool isActive { get { return GetInstance().GetActive(); } }
+    public static void SetSuccess(bool value)
+    {
+        GetInstance().success = value;
     }
 
     public static void FinishMinigame()

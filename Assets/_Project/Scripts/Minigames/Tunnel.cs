@@ -34,16 +34,24 @@ public class Tunnel : MonoBehaviour
 
     // position self at bottom corner of previous minigame.
     // return tunnel's bottom right corner position, used by MinigameController to position next minigame
-    public Vector3 SetPosition(SpriteRenderer prevMinigameBg)
+    public SpriteRenderer SetPosition(SpriteRenderer prevMinigameBg)
     {
         if (sr == null)
         {
             sr = GetComponent<SpriteRenderer>();
         }
-        // place self between prev and next minigames at bottom
-        Vector2 prevBottomRight = (Vector2)prevMinigameBg.transform.position + new Vector2(1f, -1f) * prevMinigameBg.bounds.extents + (Vector2)sr.bounds.extents;
-        transform.position = new Vector3(prevBottomRight.x - (WALL_PX / sr.sprite.pixelsPerUnit), prevBottomRight.y, transform.position.z);
-        return transform.position + (Vector3)(new Vector2(1f, -1f) * sr.bounds.extents) + Vector3.left * (WALL_PX / sr.sprite.pixelsPerUnit);
+        // place self at player height
+        float tunnelX = prevMinigameBg.transform.position.x + prevMinigameBg.bounds.extents.x + sr.bounds.extents.x;
+        float yMax = prevMinigameBg.transform.position.y + prevMinigameBg.bounds.extents.y - sr.bounds.extents.y;
+        float yMin = prevMinigameBg.transform.position.y - prevMinigameBg.bounds.extents.y + sr.bounds.extents.y;
+        float tunnelY = Mathf.Clamp(Player.GetInstance().transform.position.y, yMin, yMax);
+        transform.position = new Vector3(tunnelX, tunnelY, transform.position.z) + GetOffset();
+        return sr;
+    }
+
+    public Vector3 GetOffset()
+    {
+        return new Vector3(-(WALL_PX / sr.sprite.pixelsPerUnit), 0f, 0f);
     }
 
     // tell tunnel to fade to the given opacity.
