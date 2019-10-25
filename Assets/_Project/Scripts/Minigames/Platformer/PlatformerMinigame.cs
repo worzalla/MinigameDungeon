@@ -25,19 +25,25 @@ public class PlatformerMinigame : MonoBehaviour
             cols = Player.GetInstance()?.GetComponents<Collider2D>();
         }
         // enable physics on player on minigame start
-        if (rb.IsSleeping() && minigame.GetActive())
+        if (minigame.GetActive())
         {
-            rb.WakeUp();
+            if (rb.IsSleeping())
+            {
+                rb.WakeUp();
+            }
             foreach (Collider2D col in cols)
             {
                 col.isTrigger = false;
             }
         }
         // disable physics on player on minigame end
-        else if (rb.IsAwake() && !minigame.GetActive())
+        else if (!minigame.GetActive())
         {
-            rb.Sleep();
-            rb.velocity = Vector2.zero;
+            if (rb.IsAwake())
+            {
+                rb.Sleep();
+                rb.velocity = Vector2.zero;
+            }
             foreach (Collider2D col in cols)
             {
                 col.isTrigger = true;
