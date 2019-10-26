@@ -194,6 +194,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4217163445319773624, guid: d608d2868fc83ad47b6d7dde787488ec,
+        type: 3}
+      propertyPath: notificationPrefab
+      value: 
+      objectReference: {fileID: 1450175334589316383, guid: 6a105b0e909b23848b87e34a79601c91,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d608d2868fc83ad47b6d7dde787488ec, type: 3}
 --- !u!1001 &1476995586
@@ -265,9 +271,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
         type: 3}
+      propertyPath: minigamePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
+        type: 3}
       propertyPath: minigame
       value: 
       objectReference: {fileID: 368218010}
+    - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
+        type: 3}
+      propertyPath: minigamePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1384402340284361860, guid: bc0e8114811e6154e8487ab2ce3fcbe5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51432aa253536264cada6ee96224e54e, type: 3}
 --- !u!1001 &1549460351

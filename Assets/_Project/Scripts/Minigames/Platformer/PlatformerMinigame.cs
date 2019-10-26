@@ -5,48 +5,34 @@ using UnityEngine;
 public class PlatformerMinigame : MonoBehaviour
 {
     Minigame minigame;
-    Rigidbody2D rb;
-    Collider2D[] cols;
+    PlatformerMovement movement;
     // Start is called before the first frame update
     void Start()
     {
         minigame = GetComponent<Minigame>();
         minigame.success = false;
-        rb = Player.GetInstance()?.GetComponent<Rigidbody2D>();
-        cols = Player.GetInstance()?.GetComponents<Collider2D>();
+        movement = Player.GetInstance()?.GetComponent<PlatformerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rb == null || cols == null)
-        {
-            rb = Player.GetInstance()?.GetComponent<Rigidbody2D>();
-            cols = Player.GetInstance()?.GetComponents<Collider2D>();
-        }
         // enable physics on player on minigame start
         if (minigame.GetActive())
         {
-            if (rb.IsSleeping())
+            Player.GetInstance()?.SetPhysicsActive(true);
+            if (movement == null)
             {
-                rb.WakeUp();
-            }
-            foreach (Collider2D col in cols)
-            {
-                col.isTrigger = false;
+                movement = Player.GetInstance().gameObject.AddComponent<PlatformerMovement>();
             }
         }
         // disable physics on player on minigame end
         else if (!minigame.GetActive())
         {
-            if (rb.IsAwake())
+            Player.GetInstance()?.SetPhysicsActive(false);
+            if (movement != null)
             {
-                rb.Sleep();
-                rb.velocity = Vector2.zero;
-            }
-            foreach (Collider2D col in cols)
-            {
-                col.isTrigger = true;
+                Destroy(movement);
             }
         }
     }

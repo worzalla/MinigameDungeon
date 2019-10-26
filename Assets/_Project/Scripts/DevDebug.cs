@@ -26,7 +26,7 @@ public class DevDebug : MonoBehaviour
         // Space key creates an example notification for testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize("Minigame Title");
+            //Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize("Minigame Title");
         }
     }
 }
