@@ -47,9 +47,12 @@ public class SpinValveSpinner : MonoBehaviour
         // success when water level is at 0
         float waterLevel = 1f - Mathf.InverseLerp(0f, rotations * 360f, value);
         water.targetHeight = waterLevel;
-        if (water.height < 0.01f)
+        if (water.height < 0.1f)
         {
             Minigame.SetSuccess(true);
+        }
+        if (water.height < 0.01f)
+        {
             Minigame.FinishMinigame();
         }
     }
