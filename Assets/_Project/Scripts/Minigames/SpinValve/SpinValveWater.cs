@@ -19,7 +19,6 @@ public class SpinValveWater : MonoBehaviour
     {
         transform.position = new Vector3(0, 0, transform.position.z);
         sr = GetComponent<SpriteRenderer>();
-        Debug.Log(transform.parent.gameObject);
         background = transform.parent.gameObject.GetComponent<SpriteRenderer>();
         water = GetComponent<BuoyancyEffector2D>();
         col = GetComponent<BoxCollider2D>();
