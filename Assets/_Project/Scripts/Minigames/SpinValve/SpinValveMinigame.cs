@@ -21,7 +21,7 @@ public class SpinValveMinigame : MonoBehaviour
             Player.GetInstance()?.SetPhysicsActive(true);
         }
         // disable physics on player on minigame end
-        else if (!minigame.GetActive())
+        else
         {
             Player.GetInstance()?.SetPhysicsActive(false);
         }
