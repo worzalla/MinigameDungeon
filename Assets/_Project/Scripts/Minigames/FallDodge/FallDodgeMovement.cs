@@ -53,4 +53,11 @@ public class FallDodgeMovement : MonoBehaviour
             Minigame.FinishMinigame();
         }
     }
+
+    void OnDestroy()
+    {
+        sr.flipX = false;
+        transform.localEulerAngles = Vector3.zero;
+        rb.velocity = Vector2.zero;
+    }
 }
