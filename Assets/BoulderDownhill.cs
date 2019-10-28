@@ -17,7 +17,7 @@ public class BoulderDownhill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp("space"))
+        if (Input.GetKeyUp("z"))
         {
             body.velocity = body.velocity + new Vector2((float)-1*slowdown, (float)slowdown);
         }
@@ -25,6 +25,13 @@ public class BoulderDownhill : MonoBehaviour
         {
             //body.velocity = body.velocity + new Vector2((float)0.05, (float)-0.05);
 
+        }
+    }
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            Debug.Log("Fail");
         }
     }
 }

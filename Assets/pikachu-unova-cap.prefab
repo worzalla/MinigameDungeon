@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8069179468988942044}
   m_Layer: 0
   m_Name: pikachu-unova-cap
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 66ee2c7d615ae5641b37ec39d51c92f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 456f569f74417c747b790b58dfc21dd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
