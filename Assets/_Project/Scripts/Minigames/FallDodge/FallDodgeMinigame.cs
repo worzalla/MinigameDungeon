@@ -31,7 +31,10 @@ public class FallDodgeMinigame : MonoBehaviour
                 movement = Player.GetInstance().gameObject.AddComponent<FallDodgeMovement>();
             }
             // control camera
-            MoveCameraSmooth(Player.GetInstance().transform.position.y - 3f);
+            MoveCamera(Player.GetInstance().transform.position.y - 3f);
+            // set real background as true background
+            cameraSize.tag = "Untagged";
+            background.tag = "MinigameBackground";
         }
         // disable physics on player on minigame end
         else
@@ -44,12 +47,8 @@ public class FallDodgeMinigame : MonoBehaviour
         }
     }
 
-    private void MoveCameraSmooth(float y)
+    private void MoveCamera(float y)
     {
-        // follow the specified object
-        // to smooth the following, use a differential equation
-        // where acceleration makes spd approach targetSpd = k1 * distanceToTravel
-        // acceleration is k2 * spdDifference
         float targetPos = Mathf.Clamp(y,
             background.bounds.center.y - background.bounds.extents.y + cameraSize.bounds.extents.y,
             background.bounds.center.y + background.bounds.extents.y - cameraSize.bounds.extents.y);

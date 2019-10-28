@@ -6,7 +6,7 @@ public class FallDodgeMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
-    float maxSpeed = 5f;
+    float maxSpeed = 7f;
     float horizontalSpeed = 5f;
     float tilt = 15f;
 
