@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformerMinigame : MonoBehaviour
+public class FallDodgeMinigame : MonoBehaviour
 {
     Minigame minigame;
-    PlatformerMovement movement;
+    FallDodgeMovement movement;
     // Start is called before the first frame update
     void Start()
     {
         minigame = GetComponent<Minigame>();
         minigame.success = false;
-        movement = Player.GetInstance()?.GetComponent<PlatformerMovement>();
+        movement = Player.GetInstance()?.GetComponent<FallDodgeMovement>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class PlatformerMinigame : MonoBehaviour
             Player.GetInstance()?.SetPhysicsActive(true);
             if (movement == null)
             {
-                movement = Player.GetInstance().gameObject.AddComponent<PlatformerMovement>();
+                movement = Player.GetInstance().gameObject.AddComponent<FallDodgeMovement>();
             }
         }
         // disable physics on player on minigame end
