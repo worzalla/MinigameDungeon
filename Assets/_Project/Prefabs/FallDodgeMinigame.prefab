@@ -41,7 +41,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 340009862}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 30fa931b6d2aa134ba9beec2829e52bc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -120,7 +120,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 549654416}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 30fa931b6d2aa134ba9beec2829e52bc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -283,7 +283,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2015214951}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 30fa931b6d2aa134ba9beec2829e52bc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -340,6 +340,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8424087995737819237, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: m_Name
+      value: FallDodgeMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: title
+      value: Fall Dodge Minigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bfb2f83a9ed0df49b35e6cc721cf11d,
+        type: 3}
+    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -395,26 +416,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819237, guid: 38b6e4203696aee46b178310cf35f69e,
+    - target: {fileID: 3951996869765741902, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
-      propertyPath: m_Name
-      value: FallDodgeMinigame
+      propertyPath: m_LocalPosition.y
+      value: 2.83
       objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+    - target: {fileID: 3951996869765741902, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
-      propertyPath: title
-      value: Fall Dodge Minigame
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6bfb2f83a9ed0df49b35e6cc721cf11d,
-        type: 3}
-    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
+      propertyPath: m_LocalPosition.x
+      value: -4.78
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8424087995737819257, guid: 38b6e4203696aee46b178310cf35f69e, type: 3}
