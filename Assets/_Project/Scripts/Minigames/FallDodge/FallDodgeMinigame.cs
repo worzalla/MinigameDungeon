@@ -10,7 +10,7 @@ public class FallDodgeMinigame : MonoBehaviour
     void Start()
     {
         minigame = GetComponent<Minigame>();
-        minigame.success = false;
+        minigame.success = true;
         movement = Player.GetInstance()?.GetComponent<FallDodgeMovement>();
     }
 
