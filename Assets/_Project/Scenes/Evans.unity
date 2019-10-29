@@ -422,5 +422,31 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6505278669968076420, guid: 53a15ec9cef922640a33766edd080c7f,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505278669032162756, guid: 53a15ec9cef922640a33766edd080c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505278669032162756, guid: 53a15ec9cef922640a33766edd080c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505278669032162756, guid: 53a15ec9cef922640a33766edd080c7f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 190.9513
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542148924090284844, guid: 53a15ec9cef922640a33766edd080c7f,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 736423877939588277, guid: 08214f6680936e34d9551524bebca089,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53a15ec9cef922640a33766edd080c7f, type: 3}
