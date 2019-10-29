@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroyerControlScript : MonoBehaviour
+public class DodgingDestroyer : MonoBehaviour
 {
     public GameObject destroyer;
     public int speed = 10;
@@ -17,12 +17,12 @@ public class destroyerControlScript : MonoBehaviour
         int rand = Random.Range(1, 3);
         if(rand == 1)
         {
-            x = -9;
+            x = -11;
             y = Random.Range(-3, 4);
         }
         if(rand == 2)
         {
-            x = 9;
+            x = 11;
             y = Random.Range(-3, 4);
             speed = speed * -1;
         }
@@ -35,17 +35,17 @@ public class destroyerControlScript : MonoBehaviour
     void Update()
     {
 
-        if(transform.position.x > 10 || transform.position.x < -10)
+        if(transform.position.x > 11 || transform.position.x < -11)
         {
             int rand = Random.Range(1, 3);
             if (rand == 1)
             {
-                x = -9;
+                x = -11;
                 y = Random.Range(-3, 4);
             }
             if (rand == 2)
             {
-                x = 9;
+                x = 11;
                 y = Random.Range(-3, 4);
                 speed = speed * -1;
             }
