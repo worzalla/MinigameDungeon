@@ -38,7 +38,7 @@ public class Minigame : MonoBehaviour
     // don't do anything unless set as activate by MinigameController
     // inactive includes before message has disappeared or after player has won or during transitions
     [HideInInspector]
-    public bool active;
+    public bool active = false;
 
     static Minigame minigame;
 
@@ -50,7 +50,6 @@ public class Minigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        active = false;
     }
 
     // Update is called once per frame
