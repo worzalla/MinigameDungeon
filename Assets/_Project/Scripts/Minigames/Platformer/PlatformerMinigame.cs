@@ -27,7 +27,7 @@ public class PlatformerMinigame : MonoBehaviour
             }
         }
         // disable physics on player on minigame end
-        else if (!minigame.GetActive())
+        else
         {
             Player.GetInstance()?.SetPhysicsActive(false);
             if (movement != null)

@@ -14,13 +14,13 @@ public class SpinValveSpinner : MonoBehaviour
     public float rotations = 10f;
 
     SpinValveWater water;
-    bool initialized = false;
 
     // Start is called before the first frame update
     void Start()
     {
         water = transform.parent.gameObject.GetComponentInChildren<SpinValveWater>();
         value = (1f - waterLevelStart) * (rotations * 360f);
+        transform.eulerAngles = new Vector3(0f, 0f, value);
     }
 
     // Update is called once per frame

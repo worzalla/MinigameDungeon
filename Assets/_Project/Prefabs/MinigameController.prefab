@@ -50,6 +50,10 @@ MonoBehaviour:
   notificationPrefab: {fileID: 1450175334589316383, guid: 6a105b0e909b23848b87e34a79601c91,
     type: 3}
   minigamePrefabs:
+  - {fileID: 9023238042517802504, guid: 53a15ec9cef922640a33766edd080c7f, type: 3}
+  - {fileID: 5708111899629121937, guid: 5db375b11a8eb8043b9c4afae77b9e73, type: 3}
+  - {fileID: 1894262466060172473, guid: 6427fd29a0bef194481b01dd82f5ea6e, type: 3}
   - {fileID: 1384402340284361860, guid: bc0e8114811e6154e8487ab2ce3fcbe5, type: 3}
+  - {fileID: 8481436980404352253, guid: 927152decde8686449cdce09f4bc0b1f, type: 3}
   minigame: {fileID: 0}
   maxTime: 5
