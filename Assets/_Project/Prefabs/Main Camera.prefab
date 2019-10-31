@@ -96,4 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47060e920399d24dab2fbce79d52e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notificationPrefab: {fileID: 0}
+  notificationPrefab: {fileID: 1450175334589316383, guid: 6a105b0e909b23848b87e34a79601c91,
+    type: 3}
