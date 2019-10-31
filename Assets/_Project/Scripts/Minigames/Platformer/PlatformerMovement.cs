@@ -57,7 +57,6 @@ public class PlatformerMovement : MonoBehaviour
         }
 
         // animate with blend tree
-        Debug.Log(hDirection);
         animator.SetInteger("VelocityX", hDirection);
         if (hDirection != 0)
         {

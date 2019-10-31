@@ -516,11 +516,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1055151253}
     m_Modifications:
-    - target: {fileID: 7850998595511885275, guid: 4d881c9978faa144e9200dba012ad525,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerStartingPosition
-      objectReference: {fileID: 0}
     - target: {fileID: 7850998595511885274, guid: 4d881c9978faa144e9200dba012ad525,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -576,6 +571,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7850998595511885275, guid: 4d881c9978faa144e9200dba012ad525,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerStartingPosition
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d881c9978faa144e9200dba012ad525, type: 3}
 --- !u!4 &6737731502476496765 stripped
@@ -595,6 +595,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlatformerMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: title
+      value: Jump the Platforms!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: success
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: active
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
@@ -650,21 +665,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: title
-      value: Platformer Minigame
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: success
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: active
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3951996869765741902, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}

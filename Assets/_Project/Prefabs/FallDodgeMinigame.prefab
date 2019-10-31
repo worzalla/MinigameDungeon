@@ -348,18 +348,7 @@ PrefabInstance:
     - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: title
-      value: Fall Dodge Minigame
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6bfb2f83a9ed0df49b35e6cc721cf11d,
-        type: 3}
-    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
+      value: Dodge the Sawblades!
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
@@ -414,6 +403,17 @@ PrefabInstance:
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bfb2f83a9ed0df49b35e6cc721cf11d,
+        type: 3}
+    - target: {fileID: 8424087995737819259, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3951996869765741902, guid: 38b6e4203696aee46b178310cf35f69e,
