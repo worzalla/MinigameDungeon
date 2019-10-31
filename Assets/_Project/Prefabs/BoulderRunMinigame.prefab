@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5107058201324334065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9023238042517802504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cccb5e203e1ddbf4c9ce43c879ab2efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6505278669032162753
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +265,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.3
+--- !u!114 &5107058201324334065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9023238042517802504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccb5e203e1ddbf4c9ce43c879ab2efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9171893528015676401
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BoulderRunMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: title
+      value: Stop the Boulder!
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}

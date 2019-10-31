@@ -38,8 +38,16 @@ public class MinigameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minigameState = minigame.GetComponentInChildren<Minigame>();
-        minigameState.Enable();
+        if (minigame != null)
+        {
+            minigameState = minigame.GetComponentInChildren<Minigame>();
+            minigameState.Enable();
+        }
+        // if not provided with a starting minigame, spawn one
+        else
+        {
+            finish = true;
+        }
     }
 
     // Update is called once per frame
@@ -92,13 +100,16 @@ public class MinigameController : MonoBehaviour
     {
         timer = 0f;
         // display a notification that the player succeeded/failed
-        string message = "Failure!";
-        if (minigameSuccess)
+        if (minigame)
         {
-            message = "Success!";
+            string message = "Failure!";
+            if (minigameSuccess)
+            {
+                message = "Success!";
+            }
+            Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(message);
+            yield return new WaitForSeconds(1f);
         }
-        Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(message);
-        yield return new WaitForSeconds(1f);
         // create next minigame
         CreateNextMinigame();
         while (transition != null)
@@ -121,14 +132,24 @@ public class MinigameController : MonoBehaviour
     // create the game objects for the next minigame, and pass them to the transition object
     private void CreateNextMinigame()
     {
-        SpriteRenderer prevMinigameBg = GetMinigameBackground(minigame);
-        // create tunnel
-        tunnel = Instantiate(tunnelPrefab).GetComponent<Tunnel>();
-        SpriteRenderer tunnelPos = tunnel.SetPosition(prevMinigameBg);
-        tunnel.SetTargetAlpha(1f);
-        // create next minigame (align player positions)
-        prevMinigame = minigame;
+        SpriteRenderer prevMinigameBg = null;
+        SpriteRenderer tunnelPos = null;
+        if (minigame != null)
+        {
+            prevMinigameBg = GetMinigameBackground(minigame);
+            // create tunnel
+            tunnel = Instantiate(tunnelPrefab).GetComponent<Tunnel>();
+            tunnelPos = tunnel.SetPosition(prevMinigameBg);
+            tunnel.SetTargetAlpha(1f);
+            // create next minigame (align player positions)
+            prevMinigame = minigame;
+        }
         minigame = Instantiate(minigamePrefabs[index]);
+        if (tunnel == null)
+        {
+            minigame.transform.position = Vector3.zero;
+            return;
+        }
         SpriteRenderer minigameBg = GetMinigameBackground(minigame);
         PlayerStartingPosition minigamePlayer = minigame.GetComponentInChildren<PlayerStartingPosition>();
         if (minigamePlayer == null)
