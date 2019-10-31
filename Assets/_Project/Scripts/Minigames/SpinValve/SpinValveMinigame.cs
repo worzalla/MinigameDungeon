@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class SpinValveMinigame : MonoBehaviour
 {
-    Minigame minigame;
     // Start is called before the first frame update
     void Start()
     {
-        minigame = GetComponent<Minigame>();
-        minigame.success = false;
+        Minigame.SetSuccess(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         // enable physics on player on minigame start
-        if (minigame.GetActive())
+        if (Minigame.isActive)
         {
             Player.GetInstance()?.SetPhysicsActive(true);
         }

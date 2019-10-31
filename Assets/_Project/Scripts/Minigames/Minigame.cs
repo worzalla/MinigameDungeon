@@ -45,6 +45,7 @@ public class Minigame : MonoBehaviour
     private void Awake()
     {
         minigame = this;
+        active = false;
     }
 
     // Start is called before the first frame update
