@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FallDodgeMinigame : MonoBehaviour
 {
-    Minigame minigame;
     FallDodgeMovement movement;
     SpriteRenderer background;
     SpriteRenderer cameraSize;
@@ -12,8 +11,7 @@ public class FallDodgeMinigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        minigame = GetComponent<Minigame>();
-        minigame.success = true;
+        Minigame.SetSuccess(true);
         movement = Player.GetInstance()?.GetComponent<FallDodgeMovement>();
         background = transform.Find("Background").GetComponent<SpriteRenderer>();
         cameraSize = GetComponent<SpriteRenderer>();
@@ -23,7 +21,7 @@ public class FallDodgeMinigame : MonoBehaviour
     void Update()
     {
         // enable physics on player on minigame start
-        if (minigame.GetActive())
+        if (Minigame.isActive)
         {
             Player.GetInstance()?.SetPhysicsActive(true);
             if (movement == null)
