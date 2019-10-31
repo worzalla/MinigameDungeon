@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boulderScript : MonoBehaviour
+public class BoulderScript : MonoBehaviour
 {
     public GameObject Boulder;
     protected Rigidbody2D body;

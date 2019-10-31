@@ -121,12 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &118944919 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9023238042517802504, guid: 53a15ec9cef922640a33766edd080c7f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3419667754682336053}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1060679344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,7 +261,7 @@ PrefabInstance:
         type: 3}
       propertyPath: minigame
       value: 
-      objectReference: {fileID: 118944919}
+      objectReference: {fileID: 2064600368}
     - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
         type: 3}
       propertyPath: minigamePrefabs.Array.data[0]
@@ -350,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc0e8114811e6154e8487ab2ce3fcbe5, type: 3}
---- !u!1001 &3419667754682336053
+--- !u!1001 &2064600367
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -360,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 9023238042517802504, guid: 53a15ec9cef922640a33766edd080c7f,
         type: 3}
       propertyPath: m_Name
-      value: ExampleMinigame
+      value: BoulderRunMinigame
       objectReference: {fileID: 0}
     - target: {fileID: 9023238042517802519, guid: 53a15ec9cef922640a33766edd080c7f,
         type: 3}
@@ -417,36 +411,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6505278669968076420, guid: 53a15ec9cef922640a33766edd080c7f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505278669968076420, guid: 53a15ec9cef922640a33766edd080c7f,
-        type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505278669032162756, guid: 53a15ec9cef922640a33766edd080c7f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505278669032162756, guid: 53a15ec9cef922640a33766edd080c7f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6505278669032162756, guid: 53a15ec9cef922640a33766edd080c7f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 190.9513
-      objectReference: {fileID: 0}
-    - target: {fileID: 4542148924090284844, guid: 53a15ec9cef922640a33766edd080c7f,
-        type: 3}
-      propertyPath: playerPrefab
-      value: 
-      objectReference: {fileID: 736423877939588277, guid: 08214f6680936e34d9551524bebca089,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53a15ec9cef922640a33766edd080c7f, type: 3}
+--- !u!1 &2064600368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9023238042517802504, guid: 53a15ec9cef922640a33766edd080c7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064600367}
+  m_PrefabAsset: {fileID: 0}

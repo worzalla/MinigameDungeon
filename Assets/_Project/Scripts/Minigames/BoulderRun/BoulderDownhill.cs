@@ -17,7 +17,12 @@ public class BoulderDownhill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp("z"))
+        if (!Minigame.isActive)
+        {
+            body.velocity = Vector2.zero;
+            return;
+        }
+        if (Input.GetMouseButtonDown(0))
         {
             body.velocity = body.velocity + new Vector2((float)-1*slowdown, (float)slowdown);
         }
@@ -31,7 +36,8 @@ public class BoulderDownhill : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-            Debug.Log("Fail");
+            Minigame.SetSuccess(false);
+            Minigame.FinishMinigame();
         }
     }
 }

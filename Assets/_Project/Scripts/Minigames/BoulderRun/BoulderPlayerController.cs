@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControler : MonoBehaviour
+public class BoulderPlayerController : MonoBehaviour
 {
     public GameObject pikachu;
     protected Rigidbody2D body;
