@@ -69,9 +69,10 @@ public class Minigame : MonoBehaviour
         GetInstance().success = value;
     }
 
-    public static void FinishMinigame()
+    public static void FinishMinigame() 
     {
         GameObject.FindGameObjectWithTag("MinigameController").GetComponent<MinigameController>().FinishMinigame();
+        throw new System.Exception("Here");
     }
 
     // should only be called by MinigameController
