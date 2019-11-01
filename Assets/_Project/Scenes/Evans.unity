@@ -265,9 +265,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
         type: 3}
+      propertyPath: minigamePrefabs.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
+        type: 3}
       propertyPath: minigame
       value: 
       objectReference: {fileID: 249411005}
+    - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
+        type: 3}
+      propertyPath: minigamePrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 4968811878464808231, guid: 3e2239570eaab344d81d71d4f41c451d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51432aa253536264cada6ee96224e54e, type: 3}
 --- !u!1001 &111453483050606726
