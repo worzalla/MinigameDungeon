@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 610013286}
   - component: {fileID: 610013285}
   - component: {fileID: 610013287}
+  - component: {fileID: 8229495171520739290}
   m_Layer: 9
   m_Name: Monster
   m_TagString: Enemy
@@ -207,7 +208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3428391033546482049, guid: 4e32aaf9a2647bb44931b1a7c9c21c0e,
+  m_Sprite: {fileID: -3659253432981061226, guid: 4e32aaf9a2647bb44931b1a7c9c21c0e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -307,6 +308,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e2983d619b9164e871c9b16d7f7fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8229495171520739290
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610013281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bd41c34ed9420c40b65b01186b024f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &1770778466
 AudioSource:
   m_ObjectHideFlags: 0
