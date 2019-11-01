@@ -257,16 +257,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
-        type: 3}
-      propertyPath: minigamePrefabs.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964946147222955042, guid: 51432aa253536264cada6ee96224e54e,
-        type: 3}
-      propertyPath: minigamePrefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 190479400539091448, guid: 25eab728a582d46df8171060efc711a4,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51432aa253536264cada6ee96224e54e, type: 3}

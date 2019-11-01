@@ -55,5 +55,7 @@ MonoBehaviour:
   - {fileID: 1894262466060172473, guid: 6427fd29a0bef194481b01dd82f5ea6e, type: 3}
   - {fileID: 1384402340284361860, guid: bc0e8114811e6154e8487ab2ce3fcbe5, type: 3}
   - {fileID: 8481436980404352253, guid: 927152decde8686449cdce09f4bc0b1f, type: 3}
+  - {fileID: 190479400539091448, guid: 25eab728a582d46df8171060efc711a4, type: 3}
+  - {fileID: 5969183251126388737, guid: 0353a6331cc8dff4ca127cb66309591a, type: 3}
   minigame: {fileID: 0}
   maxTime: 5
