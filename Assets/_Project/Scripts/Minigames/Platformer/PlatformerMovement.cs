@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlatformerMovement : MonoBehaviour
 {
-    public float horizontalSpeed;
-    public float jumpSpeed;
-    private float gravity;
+    public float horizontalSpeed = 3f;
+    public float jumpSpeed = 5f;
+    private float gravity = 0.5f;
     private Sprite[] gasSprites;
 
     Animator animator;
@@ -24,7 +24,7 @@ public class PlatformerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        vCollider = GetComponent<BoxCollider2D>();
+        vCollider = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -51,25 +51,30 @@ public class PlatformerMovement : MonoBehaviour
         }
         body.velocity = new Vector2(hDirection * horizontalSpeed, body.velocity.y);
 
-        if (Input.GetKeyDown("up") && Jumpable())
+        if (Input.GetKeyDown("up") && grounded)
         {
             body.velocity = new Vector2(body.velocity.x, jumpSpeed);
         }
 
         // animate with blend tree
-        //animator.SetFloat("VelocityX", hDirection);
+        animator.SetInteger("VelocityX", hDirection);
         if (hDirection != 0)
         {
-            //animator.SetFloat("FacingX", hDirection);
+            animator.SetInteger("FacingX", hDirection);
             facingX = hDirection;
+            sr.flipX = facingX < 0;
         }
-        //animator.SetFloat("VelocityY", Mathf.Sign(body.velocity.y));
-        //animator.SetBool("Grounded", grounded);
+        animator.SetInteger("VelocityY", (int)Mathf.Sign(body.velocity.y));
+        animator.SetBool("Grounded", grounded);
     }
 
-    bool Jumpable()
+    // reset animator on destroy
+    void OnDestroy()
     {
-        return Grounded();
+        animator.SetInteger("VelocityX", 0);
+        animator.SetInteger("FacingX", 0);
+        animator.SetInteger("VelocityY", 0);
+        animator.SetBool("Grounded", true);
     }
 
     bool Movable()
@@ -90,7 +95,7 @@ public class PlatformerMovement : MonoBehaviour
         RaycastHit2D[] results = new RaycastHit2D[3];
         // raycast for a collision down
         Physics2D.Raycast((Vector2)transform.position + pos, Vector2.down, new ContactFilter2D(), results,
-            vCollider.bounds.extents.y - vCollider.offset.y + 0.5f);
+            vCollider.bounds.extents.y - vCollider.offset.y + 0.05f);
         // make sure raycast hit isn't only player
         foreach (RaycastHit2D result in results)
         {

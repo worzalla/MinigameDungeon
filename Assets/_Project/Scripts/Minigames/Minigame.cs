@@ -17,7 +17,7 @@ using UnityEngine;
  * Minigames should consistently check GetActive() to make sure the MinigameController has not deactivated them.
  * This is so that, for example, the player doesn't hit a rock and explode after the minigame has shown "Success!"
  * 
- * TODO: Minigame should contain an initial player position specifier so that
+ * Minigame should contain an initial player position specifier so that
  * the MinigameController can move the player to its position in the minigame during the transition
  */
 
@@ -38,19 +38,19 @@ public class Minigame : MonoBehaviour
     // don't do anything unless set as activate by MinigameController
     // inactive includes before message has disappeared or after player has won or during transitions
     [HideInInspector]
-    public bool active;
+    public bool active = false;
 
     static Minigame minigame;
 
     private void Awake()
     {
         minigame = this;
+        active = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        active = false;
     }
 
     // Update is called once per frame
