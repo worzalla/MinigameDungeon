@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2428937604892854073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190479400539091448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561892651c9024d119b293c4987e9ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 8145294225093953395, guid: 31b249b3ce29f184bb9d3fc4a8c2b2ad,
+    type: 3}
 --- !u!1 &1147347889273008520
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,20 +424,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2428937604892854073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190479400539091448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561892651c9024d119b293c4987e9ccd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 8145294225093953395, guid: 31b249b3ce29f184bb9d3fc4a8c2b2ad,
-    type: 3}
 --- !u!1001 &8524442625627699613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,12 +449,12 @@ PrefabInstance:
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.005261004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.039277434
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}

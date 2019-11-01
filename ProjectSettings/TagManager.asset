@@ -12,6 +12,8 @@ TagManager:
   - Hazard
   - Enemy
   - Fragment
+  - Boulder
+  - Projectile
   layers:
   - Default
   - TransparentFX
