@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoulderScript : MonoBehaviour
+public class RockJumpRock : MonoBehaviour
 {
     public GameObject Boulder;
     protected Rigidbody2D body;
@@ -17,6 +17,15 @@ public class BoulderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        body.velocity = new Vector2(-1*speed, 0);
+        body.velocity = new Vector2(-1*speed, body.velocity.y);
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            Minigame.SetSuccess(false);
+            Minigame.FinishMinigame();
+        }
     }
 }

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoulderPlayerController : MonoBehaviour
+public class RockJumpPlayer : MonoBehaviour
 {
     public GameObject pikachu;
     protected Rigidbody2D body;
-    public int force;
+    public float force = 120f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +16,13 @@ public class BoulderPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) && body.velocity == new Vector2(0,0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            body.AddForce(new Vector2(0, 2*force));
+            Debug.Log("what");
+            if (Mathf.Abs(body.velocity.y) < 0.05f)
+            {
+                body.AddForce(new Vector2(0, 2 * force));
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
