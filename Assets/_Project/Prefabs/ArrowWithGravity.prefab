@@ -812,7 +812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3133759888095683731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0.64, y: 1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3133759888242717994}
@@ -1105,7 +1105,7 @@ PrefabInstance:
     - target: {fileID: 8424087995737819237, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_Name
-      value: ArrowWithGravity
+      value: Arrow w/ Gravity
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
@@ -1172,8 +1172,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.62
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8424087995737819257, guid: 38b6e4203696aee46b178310cf35f69e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38b6e4203696aee46b178310cf35f69e, type: 3}
 --- !u!4 &7235118538654669096 stripped
 Transform:
