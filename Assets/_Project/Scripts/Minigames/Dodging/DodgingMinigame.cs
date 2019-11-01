@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class DodgingMinigame : MonoBehaviour
 {
-    playerControllerScript movement;
+    DodgingPlayer movement;
+    public GameObject arrowPrefab;
+    SpriteRenderer bg;
+    SpriteRenderer arrowSr;
+
     // Start is called before the first frame update
     void Start()
     {
         Minigame.SetSuccess(true);
-        movement = Player.GetInstance()?.GetComponent<playerControllerScript>();
+        movement = Player.GetInstance()?.GetComponent<DodgingPlayer>();
+        bg = GetComponent<SpriteRenderer>();
+        arrowSr = arrowPrefab.GetComponent<SpriteRenderer>();
+        // spawn arrows
+        StartCoroutine(SpawnArrows());
     }
 
     // Update is called once per frame
@@ -21,8 +29,7 @@ public class DodgingMinigame : MonoBehaviour
             Player.GetInstance()?.SetPhysicsActive(true);
             if (movement == null)
             {
-                movement = Player.GetInstance().gameObject.AddComponent<playerControllerScript>();
-                
+                movement = Player.GetInstance().gameObject.AddComponent<DodgingPlayer>();
             }
         }
         // disable physics on player on minigame end
@@ -34,5 +41,33 @@ public class DodgingMinigame : MonoBehaviour
                 Destroy(movement);
             }
         }
+    }
+
+    IEnumerator SpawnArrows()
+    {
+        int i = 0;
+        while (i < 20)
+        {
+            if (!Minigame.isActive)
+            {
+                yield return null;
+                continue;
+            }
+            Rect rect = CameraPosition.CameraRect(arrowSr.bounds.extents);
+            float yPos = bg.transform.position.y + (0.8f * Random.Range(-bg.bounds.extents.y, bg.bounds.extents.y));
+            float xPos = rect.xMin;
+            Vector2 speed = 10f * Vector2.right;
+            if (Random.Range(0f, 1f) < 0.5f)
+            {
+                xPos = rect.xMax;
+                speed = 10f * Vector2.left;
+            }
+            GameObject arrow = Instantiate(arrowPrefab, transform);
+            arrow.transform.position = new Vector3(xPos, yPos, transform.position.z);
+            arrow.GetComponent<DodgingDestroyer>().speed = speed;
+            yield return new WaitForSeconds(0.5f);
+            i++;
+        }
+        yield break;
     }
 }

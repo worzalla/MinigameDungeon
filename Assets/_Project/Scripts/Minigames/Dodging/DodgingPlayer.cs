@@ -2,36 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerControllerScript : MonoBehaviour
+public class DodgingPlayer : MonoBehaviour
 {
     public GameObject adventurer;
-    public int speed = 10;
+    public float speed = 10;
     private Rigidbody2D body;
+    float acc = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        
+        body.drag = 0.1f;
+        body.gravityScale = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (!Minigame.isActive)
         {
-            body.velocity = new Vector2(speed * -1, body.velocity.y);
+            body.velocity = Vector2.zero;
+            return;
         }
-        if (Input.GetKey(KeyCode.D))
+        int xDirection = 0;
+        int yDirection = 0;
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            body.velocity = new Vector2(speed, body.velocity.y);
+            xDirection--;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            body.velocity = new Vector2(0, speed * -1);
+            xDirection++;
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            body.velocity = new Vector2(0, speed);
+            yDirection--;
         }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            yDirection++;
+        }
+        body.velocity = Vector2.MoveTowards(body.velocity, new Vector2(xDirection * speed, yDirection * speed), acc * Time.deltaTime);
+    }
+
+    void OnDestroy()
+    {
+        body.drag = 0f;
+        body.gravityScale = 1f;
     }
 }

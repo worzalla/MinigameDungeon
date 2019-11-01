@@ -5,55 +5,29 @@ using UnityEngine;
 public class DodgingDestroyer : MonoBehaviour
 {
     public GameObject destroyer;
-    public int speed = 10;
-    private Rigidbody2D body;
-    float x;
-    float y;
-    Vector2 pos;
+    public Vector2 speed = Vector2.right * 10f;
+
+    private SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
-        int rand = Random.Range(1, 3);
-        if(rand == 1)
-        {
-            x = -11;
-            y = Random.Range(-3, 4);
-        }
-        if(rand == 2)
-        {
-            x = 11;
-            y = Random.Range(-3, 4);
-            speed = speed * -1;
-        }
-        pos= new Vector2(x, y);
-        transform.position = pos;
-        
+        sr = GetComponent<SpriteRenderer>();
+        transform.eulerAngles = new Vector3(0f, 0f, Vector2.SignedAngle(Vector2.right, speed));
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(transform.position.x > 11 || transform.position.x < -11)
+        if (Minigame.isActive)
         {
-            int rand = Random.Range(1, 3);
-            if (rand == 1)
-            {
-                x = -11;
-                y = Random.Range(-3, 4);
-            }
-            if (rand == 2)
-            {
-                x = 11;
-                y = Random.Range(-3, 4);
-                speed = speed * -1;
-            }
-            pos = new Vector2(x, y);
-            transform.position = pos;
+            transform.position += (Vector3)speed * Time.deltaTime;
         }
-        body.velocity = new Vector2(speed, 0);
-
+        //check for destruction
+        if (!CameraPosition.CameraRect(sr.bounds.extents).Contains(transform.position))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
