@@ -25,8 +25,8 @@ public class DodgingPlayer : MonoBehaviour
             body.velocity = Vector2.zero;
             return;
         }
-        float xDirection = Player.InputX(ControlType.TILT);
-        float yDirection = Player.InputY(ControlType.TILT);
+        float xDirection = Player.InputX(ControlType.DRAG);
+        float yDirection = Player.InputY(ControlType.DRAG);
         body.velocity = Vector2.MoveTowards(body.velocity, new Vector2(xDirection * speed, yDirection * speed), acc * Time.deltaTime);
     }
 

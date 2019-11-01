@@ -119,6 +119,10 @@ public class Player : MonoBehaviour
             case ControlType.TILT:
                 return Mathf.Clamp(Input.acceleration.x * 4f, -1f, 1f);
             case ControlType.DRAG:
+                if (!Input.GetMouseButton(0))
+                {
+                    return 0f;
+                }
                 return Mathf.Clamp(0.5f * (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - GetInstance().transform.position.x), -1f, 1f);
         }
         return 0f;
@@ -146,6 +150,10 @@ public class Player : MonoBehaviour
             case ControlType.TILT:
                 return Mathf.Clamp(Input.acceleration.y * 4f, -1f, 1f);
             case ControlType.DRAG:
+                if (!Input.GetMouseButton(0))
+                {
+                    return 0f;
+                }
                 return Mathf.Clamp(0.5f * (Camera.main.ScreenToWorldPoint(Input.mousePosition).y - GetInstance().transform.position.y), -1f, 1f);
             case ControlType.TAP:
                 return Input.GetMouseButton(0) ? 1f : 0f;
