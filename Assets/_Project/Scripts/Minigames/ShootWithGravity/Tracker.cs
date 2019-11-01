@@ -18,7 +18,6 @@ public class Tracker : MonoBehaviour
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemiescount = enemies.Length;
-        Debug.Log(enemies.Length);
         if (enemiescount == 0)
         {
             Minigame.SetSuccess(true);

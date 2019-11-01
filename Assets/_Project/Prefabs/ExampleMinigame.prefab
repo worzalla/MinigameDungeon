@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8424087995737819258}
   - component: {fileID: 8424087995737819259}
   - component: {fileID: 8424087995737819256}
-  - component: {fileID: 8424087995737819257}
   m_Layer: 0
   m_Name: ExampleMinigame
   m_TagString: MinigameBackground
@@ -99,18 +98,6 @@ MonoBehaviour:
   title: Example Minigame
   success: 1
   active: 0
---- !u!114 &8424087995737819257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8424087995737819237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04754c32188a1a429dc178774b0b961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6497578905296445588
 PrefabInstance:
   m_ObjectHideFlags: 0
