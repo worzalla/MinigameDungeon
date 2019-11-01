@@ -30,15 +30,7 @@ public class FallDodgeMovement : MonoBehaviour
         rb.drag = 0f;
 
         // can't move if transition exists
-        int hDirection = 0;
-        if (Input.GetKey("left"))
-        {
-            hDirection--;
-        }
-        if (Input.GetKey("right"))
-        {
-            hDirection++;
-        }
+        float hDirection = Player.InputX(ControlType.TILT);
         transform.localEulerAngles = Vector3.forward * Mathf.Clamp(hDirection, -1f, 1f) * tilt;
         rb.velocity = new Vector2(hDirection * horizontalSpeed, rb.velocity.y);
         rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -maxSpeed, maxSpeed));

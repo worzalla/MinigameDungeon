@@ -25,24 +25,8 @@ public class DodgingPlayer : MonoBehaviour
             body.velocity = Vector2.zero;
             return;
         }
-        int xDirection = 0;
-        int yDirection = 0;
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            xDirection--;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            xDirection++;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            yDirection--;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            yDirection++;
-        }
+        float xDirection = Player.InputX(ControlType.TILT);
+        float yDirection = Player.InputY(ControlType.TILT);
         body.velocity = Vector2.MoveTowards(body.velocity, new Vector2(xDirection * speed, yDirection * speed), acc * Time.deltaTime);
     }
 

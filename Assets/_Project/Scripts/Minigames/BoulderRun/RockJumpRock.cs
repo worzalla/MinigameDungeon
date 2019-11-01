@@ -11,12 +11,16 @@ public class RockJumpRock : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!Minigame.isActive)
+        {
+            body.velocity = Vector2.zero;
+            return;
+        }
         body.velocity = new Vector2(-1*speed, body.velocity.y);
     }
 

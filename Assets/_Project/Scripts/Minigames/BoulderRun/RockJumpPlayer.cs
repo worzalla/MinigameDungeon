@@ -6,22 +6,28 @@ public class RockJumpPlayer : MonoBehaviour
 {
     public GameObject pikachu;
     protected Rigidbody2D body;
-    public float force = 120f;
+    public float force = 9f;
+    public float initialY;
     // Start is called before the first frame update
     void Start()
     {
+        initialY = transform.position.y;
         body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (!Minigame.isActive)
         {
-            Debug.Log("what");
-            if (Mathf.Abs(body.velocity.y) < 0.05f)
+            body.velocity = Vector2.zero;
+            return;
+        }
+        if (Player.InputY(ControlType.TAP) > 0)
+        {
+            if (Mathf.Abs(body.velocity.y) < 0.01f && transform.position.y <= initialY)
             {
-                body.AddForce(new Vector2(0, 2 * force));
+                body.velocity = Vector2.up * force;
             }
         }
     }

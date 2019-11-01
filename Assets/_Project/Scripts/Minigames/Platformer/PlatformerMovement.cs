@@ -12,8 +12,8 @@ public class PlatformerMovement : MonoBehaviour
     Animator animator;
     Rigidbody2D body;
     SpriteRenderer sr;
-    Collider2D vCollider;
     bool grounded;
+    Player player;
 
     [HideInInspector] public int facingX = -1;
 
@@ -24,7 +24,7 @@ public class PlatformerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        vCollider = GetComponent<CircleCollider2D>();
+        player = Player.GetInstance();
     }
 
     // Update is called once per frame
@@ -37,35 +37,26 @@ public class PlatformerMovement : MonoBehaviour
         body.gravityScale = gravity;
         body.drag = 0f;
         sr.flipX = false;
-        grounded = Grounded();
+        grounded = player.grounded;
 
         // can't move if transition exists
-        int hDirection = 0;
-        if (Input.GetKey("left") && Movable())
-        {
-            hDirection--;
-        }
-        if (Input.GetKey("right") && Movable())
-        {
-            hDirection++;
-        }
+        float hDirection = Player.InputX(ControlType.TILT);
         body.velocity = new Vector2(hDirection * horizontalSpeed, body.velocity.y);
 
-        if (Input.GetKeyDown("up") && grounded)
+        if (Player.InputY(ControlType.TAP) > 0f && grounded)
         {
             body.velocity = new Vector2(body.velocity.x, jumpSpeed);
         }
 
         // animate with blend tree
-        animator.SetInteger("VelocityX", hDirection);
-        if (hDirection != 0)
+        animator.SetInteger("VelocityX", (int)Mathf.Sign(hDirection));
+        if (Mathf.Sign(hDirection) != 0)
         {
-            animator.SetInteger("FacingX", hDirection);
-            facingX = hDirection;
+            animator.SetInteger("FacingX", (int)Mathf.Sign(hDirection));
+            facingX = (int)Mathf.Sign(hDirection);
             sr.flipX = facingX < 0;
         }
         animator.SetInteger("VelocityY", (int)Mathf.Sign(body.velocity.y));
-        animator.SetBool("Grounded", grounded);
     }
 
     // reset animator on destroy
@@ -74,40 +65,11 @@ public class PlatformerMovement : MonoBehaviour
         animator.SetInteger("VelocityX", 0);
         animator.SetInteger("FacingX", 0);
         animator.SetInteger("VelocityY", 0);
-        animator.SetBool("Grounded", true);
     }
 
     bool Movable()
     {
         return true;
-    }
-
-    bool Grounded()
-    {
-        return CheckRaycastGround(Vector2.zero) ||
-            CheckRaycastGround(Vector2.left * (vCollider.bounds.extents.x + vCollider.offset.x)) ||
-            CheckRaycastGround(Vector2.right * (vCollider.bounds.extents.x + vCollider.offset.x));
-    }
-
-    bool CheckRaycastGround(Vector2 pos)
-    {
-        // player has 2 colliders, so to find more, make this 3
-        RaycastHit2D[] results = new RaycastHit2D[3];
-        // raycast for a collision down
-        Physics2D.Raycast((Vector2)transform.position + pos, Vector2.down, new ContactFilter2D(), results,
-            vCollider.bounds.extents.y - vCollider.offset.y + 0.05f);
-        // make sure raycast hit isn't only player
-        foreach (RaycastHit2D result in results)
-        {
-            if (result.collider != null)
-            {
-                if (result.collider.gameObject.tag != "Player")
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     void OnTriggerStay2D(Collider2D col)
