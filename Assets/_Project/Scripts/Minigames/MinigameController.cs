@@ -13,6 +13,9 @@ using UnityEngine;
  */
 public class MinigameController : MonoBehaviour
 {
+
+    static MinigameController instance;
+
     // values specified by the Unity Editor
     public GameObject tunnelPrefab;
     public GameObject transitionPrefab;
@@ -26,6 +29,8 @@ public class MinigameController : MonoBehaviour
     GameObject transition;
     Tunnel tunnel;
 
+    UIController uiController;
+
     bool finish;
     bool ready = true;
     bool minigameSuccess = false;
@@ -34,7 +39,10 @@ public class MinigameController : MonoBehaviour
     Minigame minigameState;
     float timer = 0f;
     public float maxTime = 5f;
-
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +56,11 @@ public class MinigameController : MonoBehaviour
         {
             finish = true;
         }
+    }
+
+    internal static MinigameController GetInstance()
+    {
+        return instance;
     }
 
     // Update is called once per frame
@@ -102,11 +115,8 @@ public class MinigameController : MonoBehaviour
         // display a notification that the player succeeded/failed
         if (minigame)
         {
-            string message = "Failure!";
-            if (minigameSuccess)
-            {
-                message = "Success!";
-            }
+            string message = minigameSuccess ?"Success!" : "Failure!";
+            if (!minigameSuccess) UIController.TakeYourHeart();
             Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(message);
             yield return new WaitForSeconds(1f);
         }
