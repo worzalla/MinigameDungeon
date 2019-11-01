@@ -57,14 +57,24 @@ public class PlatformerMovement : MonoBehaviour
         }
 
         // animate with blend tree
-        //animator.SetFloat("VelocityX", hDirection);
+        animator.SetInteger("VelocityX", hDirection);
         if (hDirection != 0)
         {
-            //animator.SetFloat("FacingX", hDirection);
+            animator.SetInteger("FacingX", hDirection);
             facingX = hDirection;
+            sr.flipX = facingX < 0;
         }
-        //animator.SetFloat("VelocityY", Mathf.Sign(body.velocity.y));
-        //animator.SetBool("Grounded", grounded);
+        animator.SetInteger("VelocityY", (int)Mathf.Sign(body.velocity.y));
+        animator.SetBool("Grounded", grounded);
+    }
+
+    // reset animator on destroy
+    void OnDestroy()
+    {
+        animator.SetInteger("VelocityX", 0);
+        animator.SetInteger("FacingX", 0);
+        animator.SetInteger("VelocityY", 0);
+        animator.SetBool("Grounded", true);
     }
 
     bool Movable()

@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class PlatformerMinigame : MonoBehaviour
 {
-    Minigame minigame;
     PlatformerMovement movement;
     // Start is called before the first frame update
     void Start()
     {
-        minigame = GetComponent<Minigame>();
-        minigame.success = false;
+        Minigame.SetSuccess(false);
         movement = Player.GetInstance()?.GetComponent<PlatformerMovement>();
     }
 
@@ -18,7 +16,7 @@ public class PlatformerMinigame : MonoBehaviour
     void Update()
     {
         // enable physics on player on minigame start
-        if (minigame.GetActive())
+        if (Minigame.isActive)
         {
             Player.GetInstance()?.SetPhysicsActive(true);
             if (movement == null)
@@ -27,7 +25,7 @@ public class PlatformerMinigame : MonoBehaviour
             }
         }
         // disable physics on player on minigame end
-        else if (!minigame.GetActive())
+        else
         {
             Player.GetInstance()?.SetPhysicsActive(false);
             if (movement != null)
