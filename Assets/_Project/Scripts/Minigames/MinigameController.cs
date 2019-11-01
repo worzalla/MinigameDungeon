@@ -13,9 +13,6 @@ using UnityEngine;
  */
 public class MinigameController : MonoBehaviour
 {
-
-    static MinigameController instance;
-
     // values specified by the Unity Editor
     public GameObject tunnelPrefab;
     public GameObject transitionPrefab;
@@ -39,10 +36,7 @@ public class MinigameController : MonoBehaviour
     Minigame minigameState;
     float timer = 0f;
     public float maxTime = 5f;
-    private void Awake()
-    {
-        instance = this;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +52,9 @@ public class MinigameController : MonoBehaviour
         }
     }
 
-    internal static MinigameController GetInstance()
+    public static MinigameController GetInstance()
     {
-        return instance;
+        return GameObject.FindGameObjectWithTag("MinigameController").GetComponent<MinigameController>();
     }
 
     // Update is called once per frame
