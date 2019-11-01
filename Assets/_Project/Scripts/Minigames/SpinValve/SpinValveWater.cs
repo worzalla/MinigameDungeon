@@ -17,7 +17,7 @@ public class SpinValveWater : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 0, transform.position.z);
+        transform.localPosition = new Vector3(0f, 0f, transform.position.z);
         sr = GetComponent<SpriteRenderer>();
         background = transform.parent.gameObject.GetComponent<SpriteRenderer>();
         water = GetComponent<BuoyancyEffector2D>();
