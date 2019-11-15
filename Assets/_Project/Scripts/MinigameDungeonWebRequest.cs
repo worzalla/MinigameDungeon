@@ -18,7 +18,7 @@ public class MinigameDungeonWebRequest : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("email", email);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("https://minecraft.scrollingnumbers.com:42069/signup", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://minecraft.scrollingnumbers.com:42069/signup", form))
         {
             yield return www.SendWebRequest();
 
