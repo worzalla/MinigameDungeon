@@ -93,11 +93,11 @@ public class UIController : MonoBehaviour
         }
         else if (screen == "Sign Up")
         {
-            Overlay.SetScreen("Sign up for GDD", "Do it u nerd", true);
+            Overlay.SetScreen("Sign up for GDD", "Game Design and Development is a register student org at UW-Madison that focuses on the creation of games. Please leave your email if you would like more information.", true);
         }
         else if (screen == "Info")
         {
-            Overlay.SetScreen("Information", "Info placeholder", false);
+            Overlay.SetScreen("Information", "Minigame Dungeon was made by Evans Chen, Emma Tracy, Jun Yu \"Jimmy\" Ma, Vinoth Manoharan, and Skylyn Worzalla for CS 506 at UW-Madison", false);
         }
     }
 }
