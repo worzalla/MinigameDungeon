@@ -135,6 +135,7 @@ public class MinigameController : MonoBehaviour
         // sit here and pause forever on a disabled minigame
         if (info.health <= 0)
         {
+            UIController.GetInstance().EndGame();
             yield break;
         }
         // create next minigame
@@ -251,5 +252,13 @@ public class MinigameController : MonoBehaviour
     public float GetTimer()
     {
         return 1f - (timer / maxTime);
+    }
+
+    public void Delete()
+    {
+        Player player = Player.GetInstance();
+        GameObject.Destroy(player);
+        GameObject.Destroy(minigame);
+        GameObject.Destroy(this);
     }
 }

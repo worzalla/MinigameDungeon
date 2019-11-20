@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    private static UIController instance;
     private MinigameController minigameController;
     public SimpleHealthBar healthBar;
 
     public GameObject[] HeartArray;
     public Text LevelText;
     public Overlay Overlay;
+
+    private PlayerInfo info;
+
+    public GameObject minigameControllerInstance;
 
     public string defaultScreen = "";
 
@@ -29,28 +32,32 @@ public class UIController : MonoBehaviour
     */
     private void Awake()
     {
-        instance = this;
-        minigameController = MinigameController.GetInstance();
+        info = UIController.GetInstance().GetComponent<PlayerInfo>();
         ToggleOverlay();
         SetCurrentScreen("Menu");
     }
 
     private void Update()
     {
-        healthBar.UpdateBar(minigameController.maxTime * minigameController.GetTimer(), minigameController.maxTime);
+        if (minigameController != null)
+        {
+            healthBar.UpdateBar(minigameController.maxTime * minigameController.GetTimer(), minigameController.maxTime);
+        }
+        LevelText.text = "Level " + info.score;
     }
 
     void StartGame ()
     {
         // Create minigame controller
-        print("Start game");
+        minigameController = Instantiate(minigameControllerInstance).GetComponent<MinigameController>();
     }
 
     // Snaps away the minigame controller and lets user sign up for gdd and stuff if they want
-    void EndGame ()
+    public void EndGame ()
     {
-        // Destroy minigame controller
-        print("Avengers: Endgame");
+        minigameController.Delete();
+        SetCurrentScreen("Game Over");
+        ToggleOverlay();
     }
 
     public void SignUpForGDD ()
@@ -118,6 +125,7 @@ public class UIController : MonoBehaviour
     public void ToggleOverlay()
     {
         m_menuOn = !m_menuOn;
+
         Overlay.SetActive(m_menuOn);
     }
     
@@ -144,6 +152,10 @@ public class UIController : MonoBehaviour
         else if (screen == "Info")
         {
             Overlay.SetScreen("Information", "Minigame Dungeon was made by Evans Chen, Emma Tracy, Jun Yu \"Jimmy\" Ma, Vinoth Manoharan, and Skylyn Worzalla for CS 506 at UW-Madison", false);
+        }
+        else if (screen == "Game Over")
+        {
+            Overlay.SetScreen("Game Over", "You're out of hearts! Play again or sign up for GDD!", false);
         }
     }
 }
