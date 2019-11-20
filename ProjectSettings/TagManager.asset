@@ -16,6 +16,7 @@ TagManager:
   - Projectile
   - lava
   - HeartArray
+  - UIController
   layers:
   - Default
   - TransparentFX

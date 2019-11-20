@@ -20,6 +20,10 @@ public class SliceMonsterMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Minigame.isActive)
+        {
+            return;
+        }
         Swipe s = SliceMonsterInput.GetSwipe();
         if (s != null)
         {

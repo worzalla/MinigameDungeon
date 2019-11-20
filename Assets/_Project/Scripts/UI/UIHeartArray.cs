@@ -25,7 +25,13 @@ public class UIHeartArray : MonoBehaviour
     {
         for (int i = 0; i < hearts.Count; i++)
         {
-            hearts[i].SetBool("Active", i < health);
+            bool active = i >= (3 - health);
+            bool prev = hearts[i].GetBool("Active");
+            hearts[i].SetBool("Active", active);
+            if (!active && prev)
+            {
+                hearts[i].gameObject.transform.SetAsLastSibling();
+            }
         }
     }
 }

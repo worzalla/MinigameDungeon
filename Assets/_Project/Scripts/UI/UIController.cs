@@ -19,6 +19,11 @@ public class UIController : MonoBehaviour
     private string m_userEmail = "";
     private bool m_menuOn = false;
     
+    public static UIController GetInstance()
+    {
+        return GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+    }
+
    /** Sets up screen control in m_screens. 
     *  IMPORTANT: Overlays should be independent (only one gob in m_screens is shown, so it would be overlaying nothing)
     */
@@ -64,15 +69,6 @@ public class UIController : MonoBehaviour
     {
         m_menuOn = !m_menuOn;
         Overlay.SetActive(m_menuOn);
-    }
-
-    // Remove 1 heart from array, if no hearts left ends game
-    public static void TakeYourHeart()
-    {
-        bool outOfHearts = false;
-        Debug.Log("Taking a heart");
-        // instance.HeartArray
-        if (outOfHearts) instance.EndGame();
     }
     
     public static void ShowControls (string type)
