@@ -55,12 +55,62 @@ public class UIController : MonoBehaviour
 
     public void SignUpForGDD ()
     {
-        bool success = minigameController.GetComponent<MinigameDungeonWebRequest>().SendEmail(m_userEmail);
-        string title = success ? "Success!" : "Failure";
-        string text = success ? "You have signed up for GDD!" :
-            "Sorry, something went wrong. Please try again.";
-        Overlay.SetScreen(title, text, false);
+        StartCoroutine(SignUpCoroutine());
     }
+    IEnumerator SignUpCoroutine()
+    {
+        MinigameDungeonWebRequest mdwr = GetComponent<MinigameDungeonWebRequest>();
+        if (!mdwr.ready)
+        {
+            // if a request is still on the way, ignore repeated button press.
+            yield break;
+        }
+        mdwr.SendEmail(m_userEmail);
+        // disable form while request is on the way
+        string loading = "Signing up...";
+        Overlay.SetScreen(loading, "This may take a minute.", false);
+        // wait until web request is complete
+        int c = 0;
+        while (!mdwr.complete)
+        {
+            c++;
+            if (c % 60 == 0 && loading.Length < 25)
+            {
+                loading = loading + ".";
+                Overlay.SetScreen(loading, "This may take a minute.", false);
+            }
+            yield return null;
+        }
+        // when web request is complete, fetch result
+        long result = mdwr.result;
+        mdwr.ready = true;
+        string title = result == 200 ? "Success!" : "Failure";
+        string text = "You have signed up for GDD!";
+        switch (result)
+        {
+            case 200:
+                break;
+            case 400:
+                text = "Sorry, only UW emails ending in '@wisc.edu' can be used to sign up.";
+                break;
+            case 404:
+                text = "Please enter an email.";
+                break;
+            case 406:
+                text = "The UW email entered does not exist.";
+                break;
+            case 422:
+                title = "Success?";
+                text = "The UW email entered has already been signed up.";
+                break;
+            default:
+                text = "Sorry, something went wrong. Please try again.";
+                break;
+        }
+        Overlay.SetScreen(title, text, false);
+        yield break;
+    }
+
     public void SetEmail (string email)
     {
         m_userEmail = email;
