@@ -324,6 +324,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 585220306}
+    - target: {fileID: 276595854054782632, guid: 7ab86397d73bce64ebd5922422f0f211,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
 --- !u!1001 &1060679344
@@ -333,6 +338,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4217163445319773626, guid: d608d2868fc83ad47b6d7dde787488ec,
         type: 3}
       propertyPath: m_Name
@@ -392,16 +407,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d608d2868fc83ad47b6d7dde787488ec, type: 3}
