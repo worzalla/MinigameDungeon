@@ -872,7 +872,8 @@ MonoBehaviour:
   HeartArray: []
   LevelText: {fileID: 1258847243891334749}
   Overlay: {fileID: 1258847243789577788}
-  minigameControllerInstance: {fileID: 0}
+  minigameControllerInstance: {fileID: 1964946147222955100, guid: 51432aa253536264cada6ee96224e54e,
+    type: 3}
   defaultScreen: Menu
 --- !u!114 &2238807250608023306
 MonoBehaviour:
@@ -2529,6 +2530,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: heart0
       objectReference: {fileID: 0}
+    - target: {fileID: 1182140395066284329, guid: 22e4d63105e63434fb664793cd6e599c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3289339041803720057, guid: 6a226fda5e4b22a4fa4da5c1cc5ce1fd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22e4d63105e63434fb664793cd6e599c, type: 3}
 --- !u!224 &1258847245333360497 stripped

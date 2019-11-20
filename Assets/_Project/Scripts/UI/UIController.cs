@@ -49,6 +49,7 @@ public class UIController : MonoBehaviour
     void StartGame ()
     {
         // Create minigame controller
+        info.Reset();
         minigameController = Instantiate(minigameControllerInstance).GetComponent<MinigameController>();
     }
 
