@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.4354366, y: 3.468699}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1}
+  m_Size: {x: 2.4441035, y: 8.808463}
   m_EdgeRadius: 0
 --- !u!1 &5159709605445925082
 GameObject:
@@ -422,8 +422,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8839745411278242995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.39, y: -3.51, z: 0}
-  m_LocalScale: {x: 0.4, y: 3, z: 1}
+  m_LocalPosition: {x: -2.246, y: -3.76, z: 0}
+  m_LocalScale: {x: 0.384, y: 2.0295181, z: 1}
   m_Children: []
   m_Father: {fileID: 8839745409988623864}
   m_RootOrder: 1
@@ -552,8 +552,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8839745411700042908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.95, y: -3.19, z: 0}
-  m_LocalScale: {x: 0.25, y: 4, z: 1}
+  m_LocalPosition: {x: 1.015, y: -3.331, z: 0}
+  m_LocalScale: {x: 0.6709875, y: 3.270332, z: 1}
   m_Children: []
   m_Father: {fileID: 8839745409988623864}
   m_RootOrder: 0
@@ -741,11 +741,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6101421036837466408}
     m_Modifications:
-    - target: {fileID: 7850998595511885275, guid: 4d881c9978faa144e9200dba012ad525,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerStartingPosition
-      objectReference: {fileID: 0}
     - target: {fileID: 7850998595511885274, guid: 4d881c9978faa144e9200dba012ad525,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -801,6 +796,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7850998595511885275, guid: 4d881c9978faa144e9200dba012ad525,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerStartingPosition
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d881c9978faa144e9200dba012ad525, type: 3}
 --- !u!4 &1629341318524732444 stripped
@@ -816,11 +816,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6101421036837466408}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -829,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5107155
+      value: -3.88
       objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
@@ -885,6 +880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
