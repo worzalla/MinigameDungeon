@@ -75,7 +75,14 @@ public class UIController : MonoBehaviour
         {
             healthBar.UpdateBar(minigameController.maxTime * minigameController.GetTimer(), minigameController.maxTime);
         }
-        LevelText.text = "Level " + info.score;
+        if (info.level <= 99)
+        {
+            LevelText.text = "Level " + info.level;
+        }
+        else
+        {
+            LevelText.text = "Level ∞";
+        }
     }
 
     void StartGame ()
