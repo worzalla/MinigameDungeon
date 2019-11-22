@@ -13,6 +13,35 @@ public class UIController : MonoBehaviour
     public GameObject[] HeartArray;
     public Text LevelText;
     public Overlay Overlay;
+    public GameObject HUD;
+
+    [System.Serializable]
+    public class GestureDictionary
+    {
+        [System.Serializable]
+        public struct Entry
+        {
+            public string name;
+            public Sprite img;    
+            public string GetName() { return name;}
+            public Sprite GetImage() { return img;}
+        }
+        
+        public Entry[] entries;
+        public Sprite GetImageByName(string name)
+        {
+            if (name == "" || name == null) name = "Default";
+            foreach (Entry e in entries)
+            {
+                if (e.GetName() == name) return e.GetImage();
+            }
+            return null;
+        }
+    }
+
+    public GestureDictionary gestures;
+    public Image TouchImg;
+    public Text TouchName;
 
     public string defaultScreen = "";
 
@@ -64,6 +93,7 @@ public class UIController : MonoBehaviour
     {
         m_menuOn = !m_menuOn;
         Overlay.SetActive(m_menuOn);
+        HUD.SetActive(!m_menuOn);
     }
 
     // Remove 1 heart from array, if no hearts left ends game
@@ -99,6 +129,15 @@ public class UIController : MonoBehaviour
         {
             Overlay.SetScreen("Information", "Minigame Dungeon was made by Evans Chen, Emma Tracy, Jun Yu \"Jimmy\" Ma, Vinoth Manoharan, and Skylyn Worzalla for CS 506 at UW-Madison", false);
         }
+    }
+
+    /** 
+     *  Accepts: "TILT", "DRAG", "TAP", and "SWIPE"
+     */
+    public void SetGesture(string gesture)
+    {
+        TouchName.text = gesture;
+        TouchImg.sprite = gestures.GetImageByName(gesture);
     }
 }
 

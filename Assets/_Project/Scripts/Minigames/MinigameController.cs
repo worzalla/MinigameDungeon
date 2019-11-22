@@ -40,9 +40,12 @@ public class MinigameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uiController = UIController.GetInstance();
+        audioSource = GetComponent<AudioSource>();
         if (minigame != null)
         {
             minigameState = minigame.GetComponentInChildren<Minigame>();
+            uiController.SetGesture(minigameState.gestureType);
             minigameState.Enable();
         }
         // if not provided with a starting minigame, spawn one
@@ -107,12 +110,20 @@ public class MinigameController : MonoBehaviour
     {
         timer = 0f;
         // display a notification that the player succeeded/failed
+        PlayerInfo info = uiController.GetComponent<PlayerInfo>();
         if (minigame)
         {
             string message = minigameSuccess ?"Success!" : "Failure!";
             if (!minigameSuccess) UIController.TakeYourHeart();
             Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(message);
             yield return new WaitForSeconds(1f);
+        }
+        // if player is dead, do not create next minigame
+        // sit here and pause forever on a disabled minigame
+        if (info.health <= 0)
+        {
+            uiController.EndGame();
+            yield break;
         }
         // create next minigame
         CreateNextMinigame();
@@ -126,6 +137,7 @@ public class MinigameController : MonoBehaviour
         {
             throw new MissingComponentException("GameObject" + minigame + " has no child with a Minigame component.");
         }
+        uiController.SetGesture(minigame.GetComponentInChildren<Minigame>().gestureType);
         Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(minigameState.title);
         DestroyPreviousMinigame();
         // activate next minigame
@@ -168,6 +180,7 @@ public class MinigameController : MonoBehaviour
         // convert bg to minigame coords
         pos += (Vector2)(minigame.transform.position - minigameBg.transform.position);
         minigame.transform.position = new Vector3(pos.x, pos.y, minigame.transform.position.z);
+
         // kick off transition object
         transition = Instantiate(transitionPrefab);
         transition.GetComponent<MinigameTransition>().Initialize(prevMinigameBg, tunnel.gameObject, minigameBg, 

@@ -35,6 +35,9 @@ public class Minigame : MonoBehaviour
     // read by MinigameController to determine pass/fail
     public bool success = true;
 
+    // read by UIController to determine what to show. This should probably be an enum but ehh.
+    public string gestureType = "";
+
     // don't do anything unless set as activate by MinigameController
     // inactive includes before message has disappeared or after player has won or during transitions
     [HideInInspector]
