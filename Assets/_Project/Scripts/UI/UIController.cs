@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    private static UIController instance;
     private MinigameController minigameController;
     public SimpleHealthBar healthBar;
 
@@ -43,48 +42,112 @@ public class UIController : MonoBehaviour
     public Image TouchImg;
     public Text TouchName;
 
+    private PlayerInfo info;
+
+    public GameObject minigameControllerInstance;
+
     public string defaultScreen = "";
 
     private string m_userEmail = "";
     private bool m_menuOn = false;
     
+    public static UIController GetInstance()
+    {
+        return GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+    }
+
    /** Sets up screen control in m_screens. 
     *  IMPORTANT: Overlays should be independent (only one gob in m_screens is shown, so it would be overlaying nothing)
     */
     private void Awake()
     {
-        instance = this;
-        minigameController = MinigameController.GetInstance();
+        info = UIController.GetInstance().GetComponent<PlayerInfo>();
         ToggleOverlay();
         SetCurrentScreen("Menu");
     }
 
     private void Update()
     {
-        healthBar.UpdateBar(minigameController.maxTime * minigameController.GetTimer(), minigameController.maxTime);
+        if (minigameController != null)
+        {
+            healthBar.UpdateBar(minigameController.maxTime * minigameController.GetTimer(), minigameController.maxTime);
+        }
+        LevelText.text = "Level " + info.score;
     }
 
     void StartGame ()
     {
         // Create minigame controller
-        print("Start game");
+        info.Reset();
+        minigameController = Instantiate(minigameControllerInstance).GetComponent<MinigameController>();
     }
 
     // Snaps away the minigame controller and lets user sign up for gdd and stuff if they want
-    void EndGame ()
+    public void EndGame ()
     {
-        // Destroy minigame controller
-        print("Avengers: Endgame");
+        minigameController.Delete();
+        SetCurrentScreen("Game Over");
+        ToggleOverlay();
     }
 
     public void SignUpForGDD ()
     {
-        bool success = minigameController.GetComponent<MinigameDungeonWebRequest>().SendEmail(m_userEmail);
-        string title = success ? "Success!" : "Failure";
-        string text = success ? "You have signed up for GDD!" :
-            "Sorry, something went wrong. Please try again.";
-        Overlay.SetScreen(title, text, false);
+        StartCoroutine(SignUpCoroutine());
     }
+    IEnumerator SignUpCoroutine()
+    {
+        MinigameDungeonWebRequest mdwr = GetComponent<MinigameDungeonWebRequest>();
+        if (!mdwr.ready)
+        {
+            // if a request is still on the way, ignore repeated button press.
+            yield break;
+        }
+        mdwr.SendEmail(m_userEmail);
+        // disable form while request is on the way
+        string loading = "Signing up...";
+        Overlay.SetScreen(loading, "This may take a minute.", false);
+        // wait until web request is complete
+        int c = 0;
+        while (!mdwr.complete)
+        {
+            c++;
+            if (c % 60 == 0 && loading.Length < 25)
+            {
+                loading = loading + ".";
+                Overlay.SetScreen(loading, "This may take a minute.", false);
+            }
+            yield return null;
+        }
+        // when web request is complete, fetch result
+        long result = mdwr.result;
+        mdwr.ready = true;
+        string title = result == 200 ? "Success!" : "Failure";
+        string text = "You have signed up for GDD!";
+        switch (result)
+        {
+            case 200:
+                break;
+            case 400:
+                text = "Sorry, only UW emails ending in '@wisc.edu' can be used to sign up.";
+                break;
+            case 404:
+                text = "Please enter an email.";
+                break;
+            case 406:
+                text = "The UW email entered does not exist.";
+                break;
+            case 422:
+                title = "Success?";
+                text = "The UW email entered has already been signed up.";
+                break;
+            default:
+                text = "Sorry, something went wrong. Please try again.";
+                break;
+        }
+        Overlay.SetScreen(title, text, false);
+        yield break;
+    }
+
     public void SetEmail (string email)
     {
         m_userEmail = email;
@@ -94,15 +157,6 @@ public class UIController : MonoBehaviour
         m_menuOn = !m_menuOn;
         Overlay.SetActive(m_menuOn);
         HUD.SetActive(!m_menuOn);
-    }
-
-    // Remove 1 heart from array, if no hearts left ends game
-    public static void TakeYourHeart()
-    {
-        bool outOfHearts = false;
-        Debug.Log("Taking a heart");
-        // instance.HeartArray
-        if (outOfHearts) instance.EndGame();
     }
     
     public static void ShowControls (string type)
@@ -128,6 +182,10 @@ public class UIController : MonoBehaviour
         else if (screen == "Info")
         {
             Overlay.SetScreen("Information", "Minigame Dungeon was made by Evans Chen, Emma Tracy, Jun Yu \"Jimmy\" Ma, Vinoth Manoharan, and Skylyn Worzalla for CS 506 at UW-Madison", false);
+        }
+        else if (screen == "Game Over")
+        {
+            Overlay.SetScreen("Game Over", "You're out of hearts! Play again or sign up for GDD!", false);
         }
     }
 

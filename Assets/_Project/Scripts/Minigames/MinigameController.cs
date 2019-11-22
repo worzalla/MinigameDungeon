@@ -37,6 +37,10 @@ public class MinigameController : MonoBehaviour
     float timer = 0f;
     public float maxTime = 5f;
 
+    AudioSource audioSource;
+    public AudioClip successSound;
+    public AudioClip failSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,8 +117,19 @@ public class MinigameController : MonoBehaviour
         PlayerInfo info = uiController.GetComponent<PlayerInfo>();
         if (minigame)
         {
-            string message = minigameSuccess ?"Success!" : "Failure!";
-            if (!minigameSuccess) UIController.TakeYourHeart();
+            string message = minigameSuccess ? "Success!" : "Failure!";
+            info.level++;
+            if (minigameSuccess)
+            {
+                audioSource.PlayOneShot(successSound);
+                info.score++;
+            }
+            else
+            {
+                audioSource.PlayOneShot(failSound);
+                info.health = Math.Max(0, info.health - 1);
+                GameObject.FindGameObjectWithTag("HeartArray").GetComponent<UIHeartArray>().SetHeartDisplay(info.health);
+            }
             Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(message);
             yield return new WaitForSeconds(1f);
         }
@@ -241,5 +256,13 @@ public class MinigameController : MonoBehaviour
     public float GetTimer()
     {
         return 1f - (timer / maxTime);
+    }
+
+    public void Delete()
+    {
+        Player player = Player.GetInstance();
+        GameObject.Destroy(player);
+        GameObject.Destroy(minigame);
+        GameObject.Destroy(this);
     }
 }

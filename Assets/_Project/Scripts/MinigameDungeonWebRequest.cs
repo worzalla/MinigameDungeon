@@ -5,12 +5,25 @@ using UnityEngine.Networking;
 
 public class MinigameDungeonWebRequest : MonoBehaviour
 {
-    private bool m_result;
+    public long result;
 
-    public bool SendEmail(string email)
+    // result ready and result fetched
+    public bool ready = true;
+
+    // result ready but not yet fetched
+    public bool complete = true;
+
+    void Start()
     {
+        ready = true;
+        complete = true;
+    }
+
+    public void SendEmail(string email)
+    {
+        ready = false;
+        complete = false;
         StartCoroutine(Upload(email));
-        return m_result;
     }
 
     IEnumerator Upload(string email)
@@ -24,11 +37,13 @@ public class MinigameDungeonWebRequest : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                m_result = false;
+                complete = true;
+                result = www.responseCode;
             }
             else
             {
-                m_result = true;
+                complete = true;
+                result = www.responseCode;
             }
         }
     }

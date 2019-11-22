@@ -66,7 +66,7 @@ public class Minigame : MonoBehaviour
     {
         return minigame;
     }
-    public static bool isActive { get { return GetInstance().GetActive(); } }
+    public static bool isActive { get { return GetInstance() == null ? false : GetInstance().GetActive(); } }
     public static void SetSuccess(bool value)
     {
         GetInstance().success = value;
