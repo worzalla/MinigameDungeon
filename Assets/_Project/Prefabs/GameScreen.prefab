@@ -686,7 +686,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 2bbd34537e7442a45ba26f4ccafa0cde, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 60
     m_Alignment: 4
@@ -1063,6 +1063,7 @@ MonoBehaviour:
   HUD: {fileID: 1258847245549345279}
   heartArrayPrefab: {fileID: 693701291704068776, guid: 0fc7ca8fd44dced4488f9959dd5cf888,
     type: 3}
+  hearts: {fileID: 0}
   gestures:
     entries:
     - name: TILT

@@ -41,11 +41,14 @@ public class MinigameController : MonoBehaviour
     public AudioClip successSound;
     public AudioClip failSound;
 
+    System.Random r = new System.Random();
+
     // Start is called before the first frame update
     void Start()
     {
         uiController = UIController.GetInstance();
         audioSource = GetComponent<AudioSource>();
+        ShuffleMinigames();
         if (minigame != null)
         {
             minigameState = minigame.GetComponentInChildren<Minigame>();
@@ -175,7 +178,7 @@ public class MinigameController : MonoBehaviour
             // create next minigame (align player positions)
             prevMinigame = minigame;
         }
-        minigame = Instantiate(minigamePrefabs[index]);
+        minigame = Instantiate(minigamesRandomlyOrdered[index]);
         if (tunnel == null)
         {
             minigame.transform.position = Vector3.zero;
@@ -231,7 +234,6 @@ public class MinigameController : MonoBehaviour
     // TODO: allow for minigames with different rotation
     private void ShuffleMinigames()
     {
-        System.Random r = new System.Random();
         minigamesRandomlyOrdered = Enumerable.Range(0, minigamePrefabs.Count).OrderBy(x => r.Next()).Select(i => minigamePrefabs[i]).ToList();
     }
 

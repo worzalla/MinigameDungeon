@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
     public GameObject HUD;
 
     public GameObject heartArrayPrefab;
+    public GameObject hearts;
 
     [System.Serializable]
     public class GestureDictionary
@@ -162,12 +163,11 @@ public class UIController : MonoBehaviour
         if (!m_menuOn)
         {
             // reset heart array
-            GameObject hearts = HUD.transform.Find("HeartArray")?.gameObject;
             if (hearts != null)
             {
                 Destroy(hearts);
             }
-            Instantiate(heartArrayPrefab, HUD.transform);
+            hearts = Instantiate(heartArrayPrefab, HUD.transform);
         }
     }
     
