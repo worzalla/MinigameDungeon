@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Jump the Platforms!
   success: 0
-  gestureType: 1
+  gestureType: 4
   active: 1
 --- !u!114 &6673243441396884324
 MonoBehaviour:

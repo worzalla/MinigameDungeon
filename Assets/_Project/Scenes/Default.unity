@@ -259,6 +259,22 @@ PrefabInstance:
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1539408668, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 37.184998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539408666, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539408666, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539408666, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
 --- !u!20 &585220306 stripped

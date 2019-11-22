@@ -202,11 +202,15 @@ public class UIController : MonoBehaviour
     }
 
     /** 
-     *  Accepts: "TILT", "DRAG", "TAP", and "SWIPE"
+     *  Accepts: "TILT", "DRAG", "TAP", "TILT_AND_TAP" and "SWIPE"
      */
     public void SetGesture(string gesture)
     {
         TouchName.text = gesture;
+        if (gesture == "TILT_AND_TAP")
+        {
+            TouchName.text = "TILT+TAP";
+        }
         TouchImg.sprite = gestures.GetImageByName(gesture);
     }
 }

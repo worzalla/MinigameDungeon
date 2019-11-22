@@ -5,7 +5,7 @@ using System.Linq;
 
 public enum ControlType
 {
-    TAP, TILT, DRAG, SWIPE, NULL
+    TAP, TILT, DRAG, SWIPE, TILT_AND_TAP, NULL
 }
 
 public class Player : MonoBehaviour
