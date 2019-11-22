@@ -350,6 +350,11 @@ PrefabInstance:
       propertyPath: title
       value: Dodge the Sawblades!
       objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: gestureType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -448,11 +453,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846556811556582
@@ -517,11 +522,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,6 +577,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846556959169021
@@ -586,11 +591,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -646,6 +646,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846557475581605
@@ -655,11 +660,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -715,6 +715,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846557785123488
@@ -724,11 +729,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -784,6 +784,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (6)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846558023233113
@@ -793,11 +798,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -853,6 +853,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (5)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846558068881259
@@ -862,11 +867,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -922,6 +922,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}
 --- !u!1001 &6367846558467660092
@@ -931,11 +936,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5708111899629121934}
     m_Modifications:
-    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
-        type: 3}
-      propertyPath: m_Name
-      value: Hazard (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 1481995884269536501, guid: 70348cc840e8db7439c404f4f5302223,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -990,6 +990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481995884269536267, guid: 70348cc840e8db7439c404f4f5302223,
+        type: 3}
+      propertyPath: m_Name
+      value: Hazard (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70348cc840e8db7439c404f4f5302223, type: 3}

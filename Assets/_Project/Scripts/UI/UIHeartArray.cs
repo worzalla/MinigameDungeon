@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHeartArray : MonoBehaviour
 {
     List<Animator> hearts;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         hearts = new List<Animator>() {
             transform.Find("heart0").gameObject.GetComponent<Animator>(),
@@ -18,7 +19,6 @@ public class UIHeartArray : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void SetHeartDisplay(int health)

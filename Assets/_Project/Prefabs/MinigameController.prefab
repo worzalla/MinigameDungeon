@@ -61,6 +61,8 @@ MonoBehaviour:
   - {fileID: 8458790600684150297, guid: 2c1bcbf6072dabb4abb3c445b141e2a1, type: 3}
   - {fileID: 4968811878464808231, guid: 3e2239570eaab344d81d71d4f41c451d, type: 3}
   - {fileID: 7235118538654669111, guid: 13da2f8a088d71d4fad0e7c76f0a0712, type: 3}
+  - {fileID: 6101421036837466423, guid: 13eed4e2eaeb40242832ecfac6bc2fd6, type: 3}
+  - {fileID: 1547310378912478182, guid: e6eb6403499fea045b8971aa2cdd8b36, type: 3}
   minigame: {fileID: 0}
   maxTime: 5
   successSound: {fileID: 8300000, guid: 56c2545ff1aa375479b0df14d8cd176b, type: 3}

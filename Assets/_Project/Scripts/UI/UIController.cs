@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour
     public Overlay Overlay;
     public GameObject HUD;
 
+    public GameObject heartArrayPrefab;
+
     [System.Serializable]
     public class GestureDictionary
     {
@@ -157,6 +159,16 @@ public class UIController : MonoBehaviour
         m_menuOn = !m_menuOn;
         Overlay.SetActive(m_menuOn);
         HUD.SetActive(!m_menuOn);
+        if (!m_menuOn)
+        {
+            // reset heart array
+            GameObject hearts = HUD.transform.Find("HeartArray")?.gameObject;
+            if (hearts != null)
+            {
+                Destroy(hearts);
+            }
+            Instantiate(heartArrayPrefab, HUD.transform);
+        }
     }
     
     public static void ShowControls (string type)
@@ -168,7 +180,7 @@ public class UIController : MonoBehaviour
     {
         if (screen == "Menu")
         {
-            Overlay.SetScreen("Main Menu", "", false);
+            Overlay.SetScreen("Minigame Dungeon", "", false);
         }
         else if(screen == "Play")
         {
@@ -181,7 +193,7 @@ public class UIController : MonoBehaviour
         }
         else if (screen == "Info")
         {
-            Overlay.SetScreen("Information", "Minigame Dungeon was made by Evans Chen, Emma Tracy, Jun Yu \"Jimmy\" Ma, Vinoth Manoharan, and Skylyn Worzalla for CS 506 at UW-Madison", false);
+            Overlay.SetScreen("How to Play", "Minigame Dungeon is a series of minigames. You have 5 seconds to complete each minigame. Look at the bottom left corner for hints on how to play the minigame. You have 3 lives. Try to survive as long as possible!\n\nMinigame Dungeon was made by Evans Chen, Emma Tracy, Jun Yu \"Jimmy\" Ma, Vinoth Manoharan, and Skylyn Worzalla for CS 506 at UW-Madison", false);
         }
         else if (screen == "Game Over")
         {

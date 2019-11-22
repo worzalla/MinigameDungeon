@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Example Minigame
   success: 1
+  gestureType: 2
   active: 0
 --- !u!114 &4249138314647502041
 MonoBehaviour:

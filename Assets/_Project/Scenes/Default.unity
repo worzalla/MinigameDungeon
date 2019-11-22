@@ -254,6 +254,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3289339041803720057, guid: 6a226fda5e4b22a4fa4da5c1cc5ce1fd,
         type: 3}
+    - target: {fileID: 3628631315664204311, guid: 7ab86397d73bce64ebd5922422f0f211,
+        type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ab86397d73bce64ebd5922422f0f211, type: 3}
 --- !u!20 &585220306 stripped
@@ -269,6 +274,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4217163445319773626, guid: d608d2868fc83ad47b6d7dde787488ec,
         type: 3}
       propertyPath: m_Name
@@ -328,16 +343,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4217163445319773625, guid: d608d2868fc83ad47b6d7dde787488ec,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d608d2868fc83ad47b6d7dde787488ec, type: 3}

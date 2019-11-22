@@ -49,7 +49,7 @@ public class MinigameController : MonoBehaviour
         if (minigame != null)
         {
             minigameState = minigame.GetComponentInChildren<Minigame>();
-            uiController.SetGesture(minigameState.gestureType);
+            uiController.SetGesture(minigameState.gestureType.ToString());
             minigameState.Enable();
         }
         // if not provided with a starting minigame, spawn one
@@ -152,7 +152,7 @@ public class MinigameController : MonoBehaviour
         {
             throw new MissingComponentException("GameObject" + minigame + " has no child with a Minigame component.");
         }
-        uiController.SetGesture(minigame.GetComponentInChildren<Minigame>().gestureType);
+        uiController.SetGesture(minigame.GetComponentInChildren<Minigame>().gestureType.ToString());
         Instantiate(notificationPrefab).GetComponentInChildren<UINotification>().Initialize(minigameState.title);
         DestroyPreviousMinigame();
         // activate next minigame
@@ -261,8 +261,9 @@ public class MinigameController : MonoBehaviour
     public void Delete()
     {
         Player player = Player.GetInstance();
-        GameObject.Destroy(player);
-        GameObject.Destroy(minigame);
-        GameObject.Destroy(this);
+        Destroy(player.gameObject);
+        Destroy(minigame);
+        Destroy(gameObject);
+        Camera.main.transform.position = Vector3.back * 20f;
     }
 }

@@ -479,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: gestureType
-      value: SWIPE
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}

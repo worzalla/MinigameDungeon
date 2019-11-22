@@ -434,17 +434,17 @@ PrefabInstance:
     - target: {fileID: 8424087995737819237, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: m_Name
-      value: dodgeGameEmma
+      value: ArrowDodgeMInigame
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
       propertyPath: title
       value: Dodge the Arrows!
       objectReference: {fileID: 0}
-    - target: {fileID: 8424087995737819257, guid: 38b6e4203696aee46b178310cf35f69e,
+    - target: {fileID: 8424087995737819256, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: gestureType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8424087995737819258, guid: 38b6e4203696aee46b178310cf35f69e,
         type: 3}
@@ -510,6 +510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424087995737819257, guid: 38b6e4203696aee46b178310cf35f69e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8424087995737819257, guid: 38b6e4203696aee46b178310cf35f69e, type: 3}
