@@ -15,9 +15,12 @@ public class DodgingMinigame : MonoBehaviour
         Minigame.SetSuccess(true);
         movement = Player.GetInstance()?.GetComponent<DodgingPlayer>();
         bg = GetComponent<SpriteRenderer>();
-        arrowSr = arrowPrefab.GetComponent<SpriteRenderer>();
-        // spawn arrows
-        StartCoroutine(SpawnArrows());
+        if (arrowPrefab != null)
+        {
+            arrowSr = arrowPrefab.GetComponent<SpriteRenderer>();
+            // spawn arrows
+            StartCoroutine(SpawnArrows());
+        }
     }
 
     // Update is called once per frame

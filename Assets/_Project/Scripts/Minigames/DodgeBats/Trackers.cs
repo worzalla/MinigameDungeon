@@ -5,31 +5,22 @@ using UnityEngine;
 public class Trackers : MonoBehaviour
 {
     public Transform player;
-    private Rigidbody2D rb;
-    public float movementspeed = 80f;
-    private Vector2 movement;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
         player = Player.GetInstance().transform;
-        rb = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //rb.rotation = angle;
-        direction.Normalize();
-        movement = direction;
-
-
-    }
-    private void FixedUpdate()
-    {
-        rb.MovePosition((Vector2)transform.position + (movement * movementspeed * Time.deltaTime) * 9/4);
+        if (!Minigame.isActive)
+        {
+            return;
+        }
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

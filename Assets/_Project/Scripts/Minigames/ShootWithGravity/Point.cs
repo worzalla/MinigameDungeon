@@ -14,6 +14,10 @@ public class Point : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Minigame.isActive)
+        {
+            return;
+        }
         aim = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
         Vector3 calc = aim - bow.transform.position;
         float Rotation = Mathf.Atan2(calc.y, calc.x) * Mathf.Rad2Deg;

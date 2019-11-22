@@ -18,6 +18,10 @@ public class Spawner2: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Minigame.isActive)
+        {
+            return;
+        }
         if (Time.time > next)
         {
             next = Time.time + spawnrate;

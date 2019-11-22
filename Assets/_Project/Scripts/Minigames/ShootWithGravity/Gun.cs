@@ -11,6 +11,10 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Minigame.isActive)
+        {
+            return;
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             Fire();
