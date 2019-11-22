@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e0966f28f591540b9ae6199ad2fbdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Example Minigame
+  title: Avoid the Bats!
   success: 1
   gestureType: 2
   active: 0

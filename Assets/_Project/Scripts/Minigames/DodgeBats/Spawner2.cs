@@ -26,7 +26,7 @@ public class Spawner2: MonoBehaviour
         {
             next = Time.time + spawnrate;
             randY = Random.Range(-3.7f, 4f);
-            SpawnPoint = new Vector2(transform.position.x, randY);
+            SpawnPoint = new Vector2(transform.position.x, transform.position.y + randY);
             GameObject go = Instantiate(tracker, SpawnPoint, Quaternion.identity);
             go.transform.parent = transform;
         }
