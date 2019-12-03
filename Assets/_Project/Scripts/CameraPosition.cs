@@ -15,7 +15,15 @@ public class CameraPosition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+                activity.Call<bool>("moveTaskToBack", true);
+            }
+            else
+            {
+                Application.Quit();
+            }
         }
     }
 
