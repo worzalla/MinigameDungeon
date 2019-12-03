@@ -38,6 +38,12 @@ public class AimBallistaMinigame : MonoBehaviour
             line.SetAlpha(1);
             float angle = Vector2.SignedAngle(Vector2.right, diff.normalized);
             angle = ClampAngle(angle, 0f, 90f);
+            float revAngle = Vector2.SignedAngle(Vector2.right, -diff.normalized);
+            revAngle = ClampAngle(revAngle, 0f, 90f);
+            if ((angle == 0f || angle == 90f) && (revAngle != 0f && revAngle != 90f))
+            {
+                angle = revAngle;
+            }
             Vector2 dir = (Quaternion.Euler(0, 0, angle) * Vector2.right);
             line.SetPos(head.transform.position, (Vector2)head.transform.position + (dir * 16f));
             head.transform.eulerAngles = new Vector3(0f, 0f, angle);
