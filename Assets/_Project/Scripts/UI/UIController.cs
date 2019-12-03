@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     public Text LevelText;
     public Overlay Overlay;
     public GameObject HUD;
+    public InputField TextHolder;
 
     public GameObject heartArrayPrefab;
     public GameObject hearts;
@@ -154,6 +155,7 @@ public class UIController : MonoBehaviour
                 text = "Sorry, something went wrong. Please try again.";
                 break;
         }
+        TextHolder.text = "";
         Overlay.SetScreen(title, text, false);
         yield break;
     }

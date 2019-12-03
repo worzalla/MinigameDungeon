@@ -1061,6 +1061,7 @@ MonoBehaviour:
   LevelText: {fileID: 1258847243891334749}
   Overlay: {fileID: 1258847243789577788}
   HUD: {fileID: 1258847245549345279}
+  TextHolder: {fileID: 1258847244596750166}
   heartArrayPrefab: {fileID: 693701291704068776, guid: 0fc7ca8fd44dced4488f9959dd5cf888,
     type: 3}
   hearts: {fileID: 0}
